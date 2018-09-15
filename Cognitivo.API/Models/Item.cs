@@ -19,8 +19,6 @@ namespace Cognitivo.API.Models
         [DataMember]
         public decimal unit_price;
         [DataMember]
-        public string customer_telephone;
-        [DataMember]
         public long? cloud_id;
         [DataMember]
         public string currency_code;
@@ -46,6 +44,6 @@ namespace Cognitivo.API.Models
         public int? vat_cloud_id;
         [DataMember]
         public int local_id;
-   
+
     }
 }

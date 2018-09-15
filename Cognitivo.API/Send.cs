@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Runtime.Serialization.Json;
+
 using System.Text;
 
 namespace Cognitivo.API
@@ -35,12 +36,12 @@ namespace Cognitivo.API
         public Send(SendTo SendTo, string API_Key)
         {
             API = API_Key;
-            Url = SendTo == SendTo.Production ? "https://www.cognitivo.com" : "https://test.cognitivo.com";
+            Url = SendTo == SendTo.Production ? "https://www.cognitivo.com/api/" : "https://test.cognitivo.in/api/PQR";
         }
 
-        private HttpWebResponse SendData(String Url,object Json)
+        private HttpWebResponse SendData(String Uri,object Json)
         {
-            var webAddr = Url;
+            var webAddr = Url + Uri;
             WebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(webAddr);
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
@@ -70,31 +71,38 @@ namespace Cognitivo.API
         /// </summary>
         /// <returns>List of Items with information of successful sync.</returns>
         /// <param name="Items">List of Items.</param>
-        public List<Models.ResponseItem> Item(List<Models.Item> Items)
+        public object Item(List<Models.Item> Items)
         {
-            MemoryStream ms = new MemoryStream();
-            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(Models.Item));
-            ser.WriteObject(ms, Items);
-            byte[] json = ms.ToArray();
-            ms.Close();
-            HttpWebResponse httpResponse = SendData("/sync/item", json);
-            List<Models.ResponseItem> ResponseItems = new List<Models.ResponseItem>();
-            if (httpResponse.StatusCode == HttpStatusCode.OK)
+            object json;
+            var serializer = new DataContractJsonSerializer(Items.GetType());
+            using (var stream = new MemoryStream())
             {
-               
-                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                serializer.WriteObject(stream, Items);
+                using (StreamReader sr = new StreamReader(stream))
                 {
-                    var result = streamReader.ReadToEnd();
-
-                    MemoryStream stram = new MemoryStream(Encoding.UTF8.GetBytes(result));
-                    DataContractJsonSerializer service = new DataContractJsonSerializer(ResponseItems.GetType());
-                    ResponseItems = service.ReadObject(stram) as List<Models.ResponseItem>;
-                    ms.Close();
-
+                    json=sr.ReadToEnd();
                 }
-                
             }
-                return ResponseItems;
+            return Items;
+           // HttpWebResponse httpResponse = SendData("/sync/item", json);
+          //  return httpResponse;
+            //List<Models.ResponseItem> ResponseItems = new List<Models.ResponseItem>();
+            //if (httpResponse.StatusCode == HttpStatusCode.OK)
+            //{
+               
+            //    using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+            //    {
+            //        var result = streamReader.ReadToEnd();
+
+            //        MemoryStream stram = new MemoryStream(Encoding.UTF8.GetBytes(result));
+            //        DataContractJsonSerializer service = new DataContractJsonSerializer(ResponseItems.GetType());
+            //        ResponseItems = service.ReadObject(stram) as List<Models.ResponseItem>;
+            //        stram.Close();
+
+            //    }
+                
+            //}
+            //    return ResponseItems;
         }
 
         /// <summary>
