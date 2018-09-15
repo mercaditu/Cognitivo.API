@@ -83,26 +83,25 @@ namespace Cognitivo.API
                     json=sr.ReadToEnd();
                 }
             }
-            return Items;
-           // HttpWebResponse httpResponse = SendData("/sync/item", json);
-          //  return httpResponse;
-            //List<Models.ResponseItem> ResponseItems = new List<Models.ResponseItem>();
-            //if (httpResponse.StatusCode == HttpStatusCode.OK)
-            //{
-               
-            //    using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-            //    {
-            //        var result = streamReader.ReadToEnd();
 
-            //        MemoryStream stram = new MemoryStream(Encoding.UTF8.GetBytes(result));
-            //        DataContractJsonSerializer service = new DataContractJsonSerializer(ResponseItems.GetType());
-            //        ResponseItems = service.ReadObject(stram) as List<Models.ResponseItem>;
-            //        stram.Close();
+            HttpWebResponse httpResponse = SendData("/sync/item", json);
+            List<Models.ResponseItem> ResponseItems = new List<Models.ResponseItem>();
+            if (httpResponse.StatusCode == HttpStatusCode.OK)
+            {
 
-            //    }
-                
-            //}
-            //    return ResponseItems;
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    var result = streamReader.ReadToEnd();
+
+                    MemoryStream stram = new MemoryStream(Encoding.UTF8.GetBytes(result));
+                    DataContractJsonSerializer service = new DataContractJsonSerializer(ResponseItems.GetType());
+                    ResponseItems = service.ReadObject(stram) as List<Models.ResponseItem>;
+                    stram.Close();
+
+                }
+
+            }
+            return ResponseItems;
         }
 
         /// <summary>
