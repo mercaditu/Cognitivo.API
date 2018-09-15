@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace Cognitivo.API.Models
 {
     public class Vat
@@ -31,19 +33,6 @@ namespace Cognitivo.API.Models
         /// </summary>
         /// <value>The name.</value>
         public string Name { get; set; }
-
-        /// <summary>
-        /// Read only property that calculates the prorated coeficient from the details, ex= Details.Sum(x => x.Coeficient * x.Percentage).
-        /// </summary>
-        /// <value>Coeficient of the details</value>
-        [NotMapped]
-        public decimal Coefficient
-        {
-            get
-            {
-                return Details.Sum(x => x.Coefficient * x.Percentage);
-            }
-        }
 
         /// <summary>
         /// List of Details 

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace Cognitivo.API.Models
 {
-    public class Sales
+    public class Purchase
     {
   
-        public Sales()
+        public Purchase()
         {
             Date = DateTime.Now;
-            Details = new List<SalesDetail>();
+            Details = new List<PurchaseDetail>();
             IsArchived = false;
         }
 
@@ -53,7 +53,7 @@ namespace Cognitivo.API.Models
         /// Gets or sets the contact.
         /// </summary>
         /// <value>The contact.</value>
-        public Customer Customer { get; set; }
+        public Supplier Supplier { get; set; }
 
         /// <summary>
         /// Gets or sets the payment contract.
@@ -101,7 +101,7 @@ namespace Cognitivo.API.Models
         /// Gets or sets the details.
         /// </summary>
         /// <value>The details.</value>
-        public List<SalesDetail> Details { get; set; }
+        public List<PurchaseDetail> Details { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="T:Core.Models.Order"/> is archived.
