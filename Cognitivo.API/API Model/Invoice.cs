@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace Cognitivo.API.Models
+namespace Cognitivo.API.APIModel
 {
 
     [DataContract]
@@ -46,6 +46,7 @@ namespace Cognitivo.API.Models
         [DataMember]
         public List<Detail> details;
     }
+
     [DataContract]
     public class Detail
     {
@@ -73,11 +74,7 @@ namespace Cognitivo.API.Models
         public bool is_shipped;
         [DataMember]
         public Item item { get; set; }
-
-
-
     }
-
 
     [DataContract]
     public class ResponseInvoice
@@ -86,6 +83,7 @@ namespace Cognitivo.API.Models
         {
             details = new List<ResoponseInvoiceDetail>();
         }
+
         [DataMember]
         public int cloud_id;
         [DataMember]
@@ -94,8 +92,8 @@ namespace Cognitivo.API.Models
         public int local_id;
         [DataMember]
         public List<ResoponseInvoiceDetail> details;
-
     }
+
     [DataContract]
     public class ResoponseInvoiceDetail
     {

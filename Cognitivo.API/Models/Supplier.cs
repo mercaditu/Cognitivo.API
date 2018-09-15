@@ -1,7 +1,7 @@
 ﻿using System;
 namespace Cognitivo.API.Models
 {
-    public class Supplier
+    public class Customer
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -50,12 +50,6 @@ namespace Cognitivo.API.Models
         /// </summary>
         /// <value>The telephone.</value>
         public string Telephone { get; set; }
-
-        /// <summary>
-        /// Gets or sets the lead time.
-        /// </summary>
-        /// <value>The lead time.</value>
-        public int? LeadTime { get; set; }
 
         /// <summary>
         /// Gets or sets the credit limit.

@@ -1,25 +1,19 @@
 ﻿using System;
 namespace Cognitivo.API.Models
 {
-    public class Supplier
+    public class Company
     {
         /// <summary>
-        /// Gets or sets the identifier.
+        /// Local ID used for 
         /// </summary>
         /// <value>The identifier.</value>
         public int Id { get; set; }
 
         /// <summary>
-        /// Gets or sets the cloud identifier.
+        /// Gets or sets the slug cognitivo.
         /// </summary>
-        /// <value>The cloud identifier.</value>
-        public int CloudID { get; set; }
-
-        /// <summary>
-        /// Gets or sets the company.
-        /// </summary>
-        /// <value>The company.</value>
-        public Company Company { get; set; }
+        /// <value>The slug cognitivo.</value>
+        public string SlugCognitivo { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -40,27 +34,21 @@ namespace Cognitivo.API.Models
         public string Address { get; set; }
 
         /// <summary>
-        /// Gets or sets the email.
-        /// </summary>
-        /// <value>The email.</value>
-        public string Email { get; set; }
-
-        /// <summary>
         /// Gets or sets the telephone.
         /// </summary>
         /// <value>The telephone.</value>
         public string Telephone { get; set; }
 
         /// <summary>
-        /// Gets or sets the lead time.
+        /// Gets or sets the email.
         /// </summary>
-        /// <value>The lead time.</value>
-        public int? LeadTime { get; set; }
+        /// <value>The email.</value>
+        public string Email { get; set; }
 
         /// <summary>
-        /// Gets or sets the credit limit.
+        /// Gets or sets the default currency.
         /// </summary>
-        /// <value>The credit limit.</value>
-        public int? CreditLimit { get; set; }
+        /// <value>The currency.</value>
+        public string Currency { get; set; }
     }
 }

@@ -1,18 +1,12 @@
 ﻿using System;
 namespace Cognitivo.API.Models
 {
-    public class Supplier
+    public class Location
     {
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        /// <value>The identifier.</value>
+        public Location() { }
+
         public int Id { get; set; }
 
-        /// <summary>
-        /// Gets or sets the cloud identifier.
-        /// </summary>
-        /// <value>The cloud identifier.</value>
         public int CloudID { get; set; }
 
         /// <summary>
@@ -28,22 +22,10 @@ namespace Cognitivo.API.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the tax identifier.
-        /// </summary>
-        /// <value>The tax identifier.</value>
-        public string TaxID { get; set; }
-
-        /// <summary>
         /// Gets or sets the address.
         /// </summary>
         /// <value>The address.</value>
         public string Address { get; set; }
-
-        /// <summary>
-        /// Gets or sets the email.
-        /// </summary>
-        /// <value>The email.</value>
-        public string Email { get; set; }
 
         /// <summary>
         /// Gets or sets the telephone.
@@ -52,15 +34,15 @@ namespace Cognitivo.API.Models
         public string Telephone { get; set; }
 
         /// <summary>
-        /// Gets or sets the lead time.
+        /// Gets or sets the email.
         /// </summary>
-        /// <value>The lead time.</value>
-        public int? LeadTime { get; set; }
+        /// <value>The email.</value>
+        public string Email { get; set; }
 
         /// <summary>
-        /// Gets or sets the credit limit.
+        /// Gets or sets the vat.
         /// </summary>
-        /// <value>The credit limit.</value>
-        public int? CreditLimit { get; set; }
+        /// <value>The vat.</value>
+        public Vat Vat { get; set; }
     }
 }
