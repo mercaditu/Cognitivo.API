@@ -108,5 +108,11 @@ namespace Cognitivo.API.Models
         /// </summary>
         /// <value><c>true</c> if is archived; otherwise, <c>false</c>.</value>
         public bool IsArchived { get; set; }
+
+        /// <summary>
+        /// Gets or sets the last updated on.
+        /// </summary>
+        /// <value>The last updated on.</value>
+        public DateTime LastUpdatedOn { get; set; }
     }
 }

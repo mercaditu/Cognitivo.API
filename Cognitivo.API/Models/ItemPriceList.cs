@@ -127,5 +127,11 @@ namespace Cognitivo.API.Models
         /// </summary>
         /// <value>The output value.</value>
         public decimal OutputValue { get; set; }
+
+        /// <summary>
+        /// Gets or sets the last updated on.
+        /// </summary>
+        /// <value>The last updated on.</value>
+        public DateTime LastUpdatedOn { get; set; }
     }
 }

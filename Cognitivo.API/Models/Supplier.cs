@@ -56,5 +56,11 @@ namespace Cognitivo.API.Models
         /// </summary>
         /// <value>The credit limit.</value>
         public int? CreditLimit { get; set; }
+
+        /// <summary>
+        /// Gets or sets the last updated on.
+        /// </summary>
+        /// <value>The last updated on.</value>
+        public DateTime LastUpdatedOn { get; set; }
     }
 }

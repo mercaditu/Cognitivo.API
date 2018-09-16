@@ -61,5 +61,11 @@ namespace Cognitivo.API.Models
         /// </summary>
         /// <value>The price.</value>
         public decimal Price { get; set; }
+
+        /// <summary>
+        /// Gets or sets the last updated on.
+        /// </summary>
+        /// <value>The last updated on.</value>
+        public DateTime LastUpdatedOn { get; set; }
     }
 }

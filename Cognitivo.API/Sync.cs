@@ -1,6 +1,9 @@
 ﻿using System;
 namespace Cognitivo.API
 {
+    /// <summary>
+    /// Sync Class helps Upload and Return (Download) the queries.
+    /// </summary>
     public class Sync
     {
         public Sync(string API_Key, Enums.SyncWith SyncWith = Enums.SyncWith.Production)

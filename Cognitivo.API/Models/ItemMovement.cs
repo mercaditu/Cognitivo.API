@@ -5,6 +5,7 @@ namespace Cognitivo.API.Models
     {
         public ItemMovement()
         {
+
         }
 
         public int Id { get; set; }
@@ -51,5 +52,11 @@ namespace Cognitivo.API.Models
         /// </summary>
         /// <value>The comment.</value>
         public string Comment { get; set; }
+
+        /// <summary>
+        /// Gets or sets the last updated on.
+        /// </summary>
+        /// <value>The last updated on.</value>
+        public DateTime LastUpdatedOn { get; set; }
     }
 }
