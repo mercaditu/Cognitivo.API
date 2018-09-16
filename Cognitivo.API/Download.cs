@@ -11,22 +11,26 @@ namespace Cognitivo.API
             Http.Url = (SyncWith == Enums.SyncWith.Production) ? "https://www.cognitivo.com/api/" : "https://test.cognitivo.in/api/";
         }
 
-        public Data.Base Base()
+        public Data.Base Base(string CompanySlug)
         {
-            Data.Base Data = new Data.Base();
+            if (CompanySlug == "") { throw new Exception("Company Slug is blank. Please assign before performing sync."); }
 
-            //TODO, loop through the data
+            Data.Base Data = new Data.Base();
+            Data = Http.Get(CompanySlug + "/download/base/") as Data.Base;
 
             return Data;
         }
 
-        public Data.Transactional Transactional (Enums.TimeSpan Timespan)
+        public List<Models.Sales> Sales (string CompanySlug, Enums.TimeSpan Timespan)
         {
-            Data.Transactional Data = new Data.Transactional();
+            if (CompanySlug == "") { throw new Exception("Company Slug is blank. Please assign before performing sync."); }
+            return Http.Get(CompanySlug + "/download/sales/") as List<Models.Sales>;
+        }
 
-            //TODO, 
-
-            return Data;
+        public List<Models.Purchase> Purchases(string CompanySlug, Enums.TimeSpan Timespan)
+        {
+            if (CompanySlug == "") { throw new Exception("Company Slug is blank. Please assign before performing sync."); }
+            return Http.Get(CompanySlug + "/download/purchases/") as List<Models.Purchase>;
         }
     }
 }

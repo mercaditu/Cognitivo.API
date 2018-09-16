@@ -13,7 +13,9 @@ namespace Cognitivo.API
         public static HttpWebResponse Post(String Uri, object Json)
         {
             var webAddr = Url + Uri;
+
             WebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(webAddr);
+
             httpWebRequest.ContentType = "application/json";
             httpWebRequest.Method = "POST";
             httpWebRequest.Headers.Add("Authorization", "Bearer " + API);
@@ -34,9 +36,10 @@ namespace Cognitivo.API
             return httpResponse;
         }
 
-        public static void Get()
+        public static object Get(String Uri)
         {
-
+            object Json = new object();
+            return Json; 
         }
     }
 }
