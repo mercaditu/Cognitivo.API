@@ -12,7 +12,7 @@ namespace Cognitivo.API
         public static string API { get; set; }
         public static string Url { get; set; }
 
-        public static HttpWebResponse Post(String Uri, object Json)
+        private static HttpWebResponse Post(String Uri, object Json)
         {
             var webAddr = Url + Uri;
 
@@ -44,7 +44,7 @@ namespace Cognitivo.API
         /// <returns>The sync.</returns>
         /// <param name="Uri">URI.</param>
         /// <param name="MyData">My data.</param>
-        public static HttpWebResponse Sync(String Uri, object MyData)
+        internal static HttpWebResponse Sync(String Uri, object MyData)
         {
             object json;
             var serializer = new DataContractJsonSerializer(MyData.GetType());
