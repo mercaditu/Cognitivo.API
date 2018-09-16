@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Runtime.Serialization.Json;
+using System.Text;
 
 namespace Cognitivo.API
 {
@@ -36,10 +38,24 @@ namespace Cognitivo.API
             return httpResponse;
         }
 
-        public static object Get(String Uri)
+        /// <summary>
+        /// This method will first upload your data, and download whats in the server.
+        /// </summary>
+        /// <returns>The sync.</returns>
+        /// <param name="Uri">URI.</param>
+        /// <param name="MyData">My data.</param>
+        public static HttpWebResponse Sync(String Uri, object MyData)
         {
-            object Json = new object();
-            return Json; 
+            object json;
+            var serializer = new DataContractJsonSerializer(MyData.GetType());
+
+            using (var stream = new MemoryStream())
+            {
+                serializer.WriteObject(stream, MyData);
+                using (StreamReader sr = new StreamReader(stream)) { json = sr.ReadToEnd(); }
+            }
+
+            return Post(Uri, json);
         }
     }
 }

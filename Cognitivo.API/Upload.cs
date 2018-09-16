@@ -1,4 +1,9 @@
 ﻿using System;
+using System.IO;
+using System.Net;
+using System.Runtime.Serialization.Json;
+using System.Text;
+
 namespace Cognitivo.API
 {
     public class Upload
@@ -9,17 +14,23 @@ namespace Cognitivo.API
             Http.Url = (SyncWith == Enums.SyncWith.Production) ? "https://www.cognitivo.com/api/" : "https://test.cognitivo.in/api/";
         }
 
-        public Data.Base Base(Data.Base Base)
+        public Data.Transactional Transactional(Data.Transactional Data)
         {
-            //TODO, loop through the data
-            return Base;
-        }
+            Data.Transactional data = new API.Data.Transactional();
+            HttpWebResponse httpResponse = Http.Sync("", Data);
 
-        public Data.Transactional Transactional(Enums.TimeSpan Timespan)
-        {
-            Data.Transactional Data = new Data.Transactional();
+            if (httpResponse.StatusCode == HttpStatusCode.OK)
+            {
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    var result = streamReader.ReadToEnd();
 
-            //TODO, 
+                    MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(result));
+                    DataContractJsonSerializer service = new DataContractJsonSerializer(data.GetType());
+                    data = service.ReadObject(stream) as Data.Transactional;
+                    stream.Close();
+                }
+            }
 
             return Data;
         }
