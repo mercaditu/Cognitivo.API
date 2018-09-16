@@ -10,5 +10,6 @@
   <ItemGroup>
     <Compile Remove="Models\Contract.cs" />
     <Compile Remove="Models\ContractDetail.cs" />
+    <Compile Remove="Models\Invoice.cs" />
   </ItemGroup>
 </Project>
