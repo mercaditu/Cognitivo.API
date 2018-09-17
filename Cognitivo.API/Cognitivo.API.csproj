@@ -12,4 +12,7 @@
     <Compile Remove="Models\ContractDetail.cs" />
     <Compile Remove="Models\Invoice.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
 </Project>

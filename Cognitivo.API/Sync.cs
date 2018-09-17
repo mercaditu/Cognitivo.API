@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace Cognitivo.API
 {
     /// <summary>
@@ -17,5 +19,10 @@ namespace Cognitivo.API
             //TODO, loop through the data
             return Base;
         }
+
+        //public Models.Item Items (List<Models.Item> ListOfItems)
+        //{
+        //    return ListOfItems;
+        //}
     }
 }

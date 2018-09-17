@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
@@ -17,7 +18,7 @@ namespace Cognitivo.API
         /// </summary>
         /// <returns>The get.</returns>
         /// <param name="Uri">URI.</param>
-        private static HttpWebResponse Get(String Uri)
+        public static HttpWebResponse Get(String Uri)
         {
             var webAddr = Url + Uri;
 
@@ -97,14 +98,16 @@ namespace Cognitivo.API
         /// <param name="MyList">My list.</param>
         internal static HttpWebResponse SyncList(String Uri, List<object> MyList)
         {
-            object json;
-            var serializer = new DataContractJsonSerializer(MyList.GetType());
 
-            using (var stream = new MemoryStream())
-            {
-                serializer.WriteObject(stream, MyList);
-                using (StreamReader sr = new StreamReader(stream)) { json = sr.ReadToEnd(); }
-            }
+            var json = JsonConvert.SerializeObject(MyList);
+            //object json;
+            //var serializer = new DataContractJsonSerializer(MyList.GetType());
+
+            //var stream = new MemoryStream();
+
+            //serializer.WriteObject(stream, MyList);
+            //using (StreamReader sr = new StreamReader(stream)) { json = sr.ReadToEnd(); }
+
 
             return Post(Uri, json);
         }

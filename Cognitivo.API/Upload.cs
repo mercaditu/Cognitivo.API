@@ -24,6 +24,32 @@ namespace Cognitivo.API
         }
 
         /// <summary>
+        /// Base the specified CompanySlug and Data.
+        /// </summary>
+        /// <returns>The base..</returns>
+        /// <param name="CompanySlug">Company slug.</param>
+        /// <param name="Data">Data.</param>
+        public List<object> Item(string CompanySlug, List<object> Data)
+        {
+            HttpWebResponse httpResponse = Http.SyncList(CompanySlug + "/sync/item", Data);
+
+            if (httpResponse.StatusCode == HttpStatusCode.OK)
+            {
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    var result = streamReader.ReadToEnd();
+
+                    MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(result));
+                    DataContractJsonSerializer service = new DataContractJsonSerializer(Data.GetType());
+                    Data = service.ReadObject(stream) as List<object>;
+                    stream.Close();
+                }
+            }
+
+            return Data;
+        }
+
+        /// <summary>
         /// Transactional the specified CompanySlug and Data.
         /// </summary>
         /// <returns>The transactional.</returns>

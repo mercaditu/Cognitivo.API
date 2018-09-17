@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Web;
 using System.Collections.Generic;
+using System.Net;
+using System.IO;
+using System.Text;
+using System.Runtime.Serialization.Json;
 
 namespace Cognitivo.API
 {
@@ -26,7 +30,7 @@ namespace Cognitivo.API
         {
             if (CompanySlug == "") { throw new Exception("Company Slug is blank. Please assign before performing sync."); }
             //return Http.Post(CompanySlug + "/download/base/") as Data.Base;
-            return new Data.Base();
+           return new Data.Base();
         }
 
         /// <summary>
@@ -38,8 +42,23 @@ namespace Cognitivo.API
         public List<Models.Sales> Sales (string CompanySlug, Enums.TimeSpan Timespan)
         {
             if (CompanySlug == "") { throw new Exception("Company Slug is blank. Please assign before performing sync."); }
-            //return Http.Get(CompanySlug + "/download/sales/") as List<Models.Sales>;
-            return new List<Models.Sales>();
+            List<Models.Sales> sales = new List<Models.Sales>();
+            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/sales/");
+            if (httpResponse.StatusCode == HttpStatusCode.OK)
+            {
+
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    var result = streamReader.ReadToEnd();
+
+                    MemoryStream stram = new MemoryStream(Encoding.UTF8.GetBytes(result));
+                    DataContractJsonSerializer service = new DataContractJsonSerializer(sales.GetType());
+                    sales = service.ReadObject(stram) as List<Models.Sales>;
+                    stram.Close();
+                }
+            }
+            return sales;
+            //return new List<Models.Sales>();
         }
 
         /// <summary>

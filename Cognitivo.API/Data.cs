@@ -11,7 +11,7 @@ namespace Cognitivo.API.Data
         List<Models.Account> Accounts { get; set; }
         List<Models.Company> Companies { get; set; }
         List<Models.Customer> Customers { get; set; }
-        List<Models.Item> Items { get; set; }
+        public List<Models.Item> Items { get; set; }
         List<Models.ItemCategory> ItemCategories { get; set; }
         List<Models.ItemPriceList> ItemPriceLists { get; set; }
 
