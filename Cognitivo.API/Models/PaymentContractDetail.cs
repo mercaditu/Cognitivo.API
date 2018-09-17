@@ -19,24 +19,24 @@ namespace Cognitivo.API.Models
         /// Gets or sets the contract.
         /// </summary>
         /// <value>The contract.</value>
-        public PaymentContract PaymentContract { get; set; }
+        public PaymentContract paymentContract { get; set; }
 
         /// <summary>
         /// Gets or sets the coefficient.
         /// </summary>
         /// <value>The coefficient.</value>
-        public decimal Coefficient { get; set; }
+        public decimal coefficient { get; set; }
 
         /// <summary>
         /// Gets or sets the percentage.
         /// </summary>
         /// <value>The percentage.</value>
-        public decimal Percentage { get; set; }
+        public decimal percentage { get; set; }
 
         /// <summary>
         /// Gets or sets the last updated on.
         /// </summary>
         /// <value>The last updated on.</value>
-        public DateTime LastUpdatedOn { get; set; }
+        public DateTime updatedAt { get; set; }
     }
 }

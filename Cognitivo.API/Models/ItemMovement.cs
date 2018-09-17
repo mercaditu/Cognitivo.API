@@ -8,8 +8,17 @@ namespace Cognitivo.API.Models
 
         }
 
-        public int Id { get; set; }
-        public int CloudID { get; set; }
+        /// <summary>
+        /// Gets or sets the identifier.
+        /// </summary>
+        /// <value>The identifier.</value>
+        public int localId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the cloud identifier.
+        /// </summary>
+        /// <value>The cloud identifier.</value>
+        public int cloudID { get; set; }
 
         /// <summary>
         /// Gets or sets the company.

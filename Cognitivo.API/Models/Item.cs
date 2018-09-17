@@ -9,19 +9,17 @@ namespace Cognitivo.API.Models
         public Item()
         {
         }
-        [DataMember]
         /// <summary>
         /// Gets or sets the identifier.
         /// </summary>
         /// <value>The identifier.</value>
-        public int Id { get; set; }
+        public int localId { get; set; }
 
-        [DataMember]
         /// <summary>
         /// Gets or sets the cloud identifier.
         /// </summary>
         /// <value>The cloud identifier.</value>
-        public int CloudID { get; set; }
+        public int cloudID { get; set; }
 
         [DataMember]
         /// <summary>

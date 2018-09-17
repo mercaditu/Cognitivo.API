@@ -15,55 +15,49 @@ namespace Cognitivo.API.Models
         /// Gets or sets the identifier.
         /// </summary>
         /// <value>The identifier.</value>
-        public int Id { get; set; }
+        public int localId { get; set; }
 
         /// <summary>
         /// Gets or sets the cloud identifier.
         /// </summary>
         /// <value>The cloud identifier.</value>
-        public int CloudID { get; set; }
-
-        /// <summary>
-        /// Gets or sets the session.
-        /// </summary>
-        /// <value>The session.</value>
-        // public Session Session { get; set; }
+        public int cloudID { get; set; }
 
         /// <summary>
         /// Gets or sets the account.
         /// </summary>
         /// <value>The account.</value>
-        public Account Account { get; set; }
+        public Account account { get; set; }
 
         /// <summary>
         /// Gets or sets the date.
         /// </summary>
         /// <value>The date.</value>
-        public DateTime Date { get; set; }
+        public DateTime date { get; set; }
 
         /// <summary>
         /// Gets or sets the debit.
         /// </summary>
         /// <value>The debit.</value>
-        public decimal Debit { get; set; }
+        public decimal debit { get; set; }
 
         /// <summary>
         /// Gets or sets the credit.
         /// </summary>
         /// <value>The credit.</value>
-        public decimal Credit { get; set; }
+        public decimal credit { get; set; }
 
         /// <summary>
         /// Gets or sets the currency.
         /// </summary>
         /// <value>The currency.</value>
-        public string Currency { get; set; }
+        public string currencyCode { get; set; }
 
         /// <summary>
         /// Gets or sets the rate.
         /// </summary>
         /// <value>The rate.</value>
-        public decimal Rate { get; set; }
+        public decimal currencyRate { get; set; }
 
         /// <summary>
         /// Gets or sets the comment.
@@ -75,6 +69,6 @@ namespace Cognitivo.API.Models
         /// Gets or sets the last updated on.
         /// </summary>
         /// <value>The last updated on.</value>
-        public DateTime LastUpdatedOn { get; set; }
+        public DateTime LastSyncedOn { get; set; }
     }
 }

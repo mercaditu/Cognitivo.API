@@ -7,7 +7,7 @@ namespace Cognitivo.API.Models
     {
         public PaymentContract()
         {
-            Details = new List<PaymentContractDetail>();
+            details = new List<PaymentContractDetail>();
         }
 
         /// <summary>
@@ -20,18 +20,24 @@ namespace Cognitivo.API.Models
         /// Gets or sets the cloud identifier.
         /// </summary>
         /// <value>The cloud identifier.</value>
-        public int CloudID { get; set; }
+        public int cloudId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>The name.</value>
+        public string name { get; set; }
 
         /// <summary>
         /// Gets or sets the details.
         /// </summary>
         /// <value>The details.</value>
-        public List<PaymentContractDetail> Details { get; set; }
+        public List<PaymentContractDetail> details { get; set; }
 
         /// <summary>
-        /// Gets or sets the last updated on.
+        /// Gets or sets the last updated at.
         /// </summary>
-        /// <value>The last updated on.</value>
-        public DateTime LastUpdatedOn { get; set; }
+        /// <value>The last updated at.</value>
+        public DateTime lastUpdatedAt { get; set; }
     }
 }

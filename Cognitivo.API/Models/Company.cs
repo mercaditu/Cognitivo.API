@@ -4,57 +4,57 @@ namespace Cognitivo.API.Models
     public class Company
     {
         /// <summary>
-        /// Local ID used for 
+        /// Gets or sets the identifier.
         /// </summary>
         /// <value>The identifier.</value>
-        public int Id { get; set; }
+        public int localId { get; set; }
 
         /// <summary>
-        /// Gets or sets the slug cognitivo.
+        /// Gets or sets the cloud identifier.
         /// </summary>
-        /// <value>The slug cognitivo.</value>
-        public string SlugCognitivo { get; set; }
+        /// <value>The cloud identifier.</value>
+        public int cloudID { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
         /// <value>The name.</value>
-        public string Name { get; set; }
+        public string name { get; set; }
 
         /// <summary>
         /// Gets or sets the tax identifier.
         /// </summary>
         /// <value>The tax identifier.</value>
-        public string TaxID { get; set; }
+        public string taxId { get; set; }
 
         /// <summary>
         /// Gets or sets the address.
         /// </summary>
         /// <value>The address.</value>
-        public string Address { get; set; }
+        public string address { get; set; }
 
         /// <summary>
         /// Gets or sets the telephone.
         /// </summary>
         /// <value>The telephone.</value>
-        public string Telephone { get; set; }
+        public string telephone { get; set; }
 
         /// <summary>
         /// Gets or sets the email.
         /// </summary>
         /// <value>The email.</value>
-        public string Email { get; set; }
+        public string email { get; set; }
 
         /// <summary>
         /// Gets or sets the default currency.
         /// </summary>
         /// <value>The currency.</value>
-        public string Currency { get; set; }
+        public string currencyCode { get; set; }
 
         /// <summary>
         /// Gets or sets the last updated on.
         /// </summary>
         /// <value>The last updated on.</value>
-        public DateTime LastUpdatedOn { get; set; }
+        public DateTime updatedAt { get; set; }
     }
 }
