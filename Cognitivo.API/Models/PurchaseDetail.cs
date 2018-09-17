@@ -18,54 +18,54 @@ namespace Cognitivo.API.Models
         /// Gets or sets the cloud identifier.
         /// </summary>
         /// <value>The cloud identifier.</value>
-        public int CloudID { get; set; }
+        public int CloudId { get; set; }
 
         /// <summary>
         /// Gets or sets the order.
         /// </summary>
         /// <value>The order.</value>
-        public Sales Sales { get; set; }
+        public int PurchaseCloudId { get; set; }
 
         /// <summary>
         /// Gets or sets the vat.
         /// </summary>
         /// <value>The vat.</value>
-        public Vat Vat { get; set; }
+        public int vatCloudId { get; set; }
 
         /// <summary>
         /// Gets or sets the item.
         /// </summary>
         /// <value>The item.</value>
-        public Item Item { get; set; }
+        public int itemCloudId { get; set; }
 
         /// <summary>
         /// Gets or sets the item description.
         /// </summary>
         /// <value>The item description.</value>
-        public string ItemDescription { get; set; }
+        public string itemDescription { get; set; }
 
         /// <summary>
         /// Gets or sets the cost.
         /// </summary>
         /// <value>The cost.</value>
-        public decimal Cost { get; set; }
+        public decimal cost { get; set; }
 
         /// <summary>
         /// Gets or sets the quantity.
         /// </summary>
         /// <value>The quantity.</value>
-        public decimal Quantity { get; set; }
+        public decimal quantity { get; set; }
 
         /// <summary>
         /// Gets or sets the price.
         /// </summary>
         /// <value>The price.</value>
-        public decimal Price { get; set; }
+        public decimal price { get; set; }
 
         /// <summary>
         /// Gets or sets the last updated on.
         /// </summary>
         /// <value>The last updated on.</value>
-        public DateTime LastUpdatedOn { get; set; }
+        public DateTime updatedAt { get; set; }
     }
 }

@@ -65,7 +65,7 @@ namespace Cognitivo.API.Models
         /// Gets or sets the invoice code.
         /// </summary>
         /// <value>The invoice code.</value>
-        public string Code { get; set; }
+        public string InvoiceCode { get; set; }
 
         /// <summary>
         /// Gets or sets the code expiry.
@@ -84,12 +84,6 @@ namespace Cognitivo.API.Models
         /// </summary>
         /// <value>The currency rate.</value>
         public decimal CurrencyRate { get; set; }
-
-        /// <summary>
-        /// Gets the interval.
-        /// </summary>
-        /// <value>The interval.</value>
-        public TimeSpan Interval { get; set; }
 
         /// <summary>
         /// Gets or sets the details.
