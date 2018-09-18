@@ -3,14 +3,17 @@ namespace Cognitivo.API.Models
 {
     public class Range
     {
-        public int Id { get; set; }
-        public int CloudId { get; set; }
+        /// <summary>
+        /// Gets or sets the local identifier.
+        /// </summary>
+        /// <value>The local identifier.</value>
+        public int localId { get; set; }
 
         /// <summary>
-        /// Gets or sets the company.
+        /// Gets or sets the cloud identifier.
         /// </summary>
-        /// <value>The company.</value>
-        public int companyCloudId { get; set; }
+        /// <value>The cloud identifier.</value>
+        public int cloudId { get; set; }
 
         /// <summary>
         /// Gets or sets the starting value.

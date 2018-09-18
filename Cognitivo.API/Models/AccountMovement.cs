@@ -21,13 +21,13 @@ namespace Cognitivo.API.Models
         /// Gets or sets the cloud identifier.
         /// </summary>
         /// <value>The cloud identifier.</value>
-        public int cloudID { get; set; }
+        public int cloudId { get; set; }
 
         /// <summary>
         /// Gets or sets the account.
         /// </summary>
         /// <value>The account.</value>
-        public Account account { get; set; }
+        public int accountCloudId { get; set; }
 
         /// <summary>
         /// Gets or sets the date.
@@ -63,12 +63,18 @@ namespace Cognitivo.API.Models
         /// Gets or sets the comment.
         /// </summary>
         /// <value>The comment.</value>
-        public string Comment { get; set; }
+        public string comment { get; set; }
+
+        /// <summary>
+        /// Gets or sets the reference.
+        /// </summary>
+        /// <value>The reference.</value>
+        public string reference { get; set; }
 
         /// <summary>
         /// Gets or sets the last updated on.
         /// </summary>
         /// <value>The last updated on.</value>
-        public DateTime LastSyncedOn { get; set; }
+        public DateTime updatedAt { get; set; }
     }
 }

@@ -11,9 +11,9 @@ namespace Cognitivo.API.Models
         }
 
         /// <summary>
-        /// Gets or sets the identifier.
+        /// Gets or sets the local identifier.
         /// </summary>
-        /// <value>The identifier.</value>
+        /// <value>The local identifier.</value>
         public int localId { get; set; }
 
         /// <summary>
@@ -23,20 +23,10 @@ namespace Cognitivo.API.Models
         public int cloudId { get; set; }
 
         /// <summary>
-        /// Gets or sets the company.
-        /// </summary>
-        /// <value>The company.</value>
-        public Company Company { get; set; }
-
-        /// <summary>
         /// Name for easy recognition.
         /// </summary>
         /// <value>The name.</value>
         public string name { get; set; }
-        /// <summary>
-        /// Country
-        /// </summary>
-        public string country { get; set; }
 
         /// <summary>
         /// List of Details 

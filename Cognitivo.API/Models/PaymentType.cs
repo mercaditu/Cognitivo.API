@@ -27,22 +27,16 @@ namespace Cognitivo.API.Models
         }
 
         /// <summary>
-        /// Gets or sets the identifier.
+        /// Gets or sets the local identifier.
         /// </summary>
-        /// <value>The identifier.</value>
-        public int Id { get; set; }
+        /// <value>The local identifier.</value>
+        public int localId { get; set; }
 
         /// <summary>
         /// Gets or sets the cloud identifier.
         /// </summary>
         /// <value>The cloud identifier.</value>
-        public int CloudID { get; set; }
-
-        /// <summary>
-        /// Gets or sets the company.
-        /// </summary>
-        /// <value>The company.</value>
-        public Company Company { get; set; }
+        public int cloudId { get; set; }
 
         /// <summary>
         /// Gets or sets the behaviour.
@@ -66,7 +60,7 @@ namespace Cognitivo.API.Models
         /// Gets or sets the last updated on.
         /// </summary>
         /// <value>The last updated on.</value>
-        public DateTime LastUpdatedOn { get; set; }
+        public DateTime updatedAt { get; set; }
 
     }
 }

@@ -4,16 +4,16 @@ namespace Cognitivo.API.Models
     public class Supplier
     {
         /// <summary>
-        /// Gets or sets the identifier.
+        /// Gets or sets the local identifier.
         /// </summary>
-        /// <value>The identifier.</value>
+        /// <value>The local identifier.</value>
         public int localId { get; set; }
 
         /// <summary>
         /// Gets or sets the cloud identifier.
         /// </summary>
         /// <value>The cloud identifier.</value>
-        public int cloudID { get; set; }
+        public int cloudId { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -22,16 +22,10 @@ namespace Cognitivo.API.Models
         public string name { get; set; }
 
         /// <summary>
-        /// Gets or sets the name.
+        /// Gets or sets the taxid.
         /// </summary>
-        /// <value>The name.</value>
-        public string alias { get; set; }
-
-        /// <summary>
-        /// Gets or sets the tax identifier.
-        /// </summary>
-        /// <value>The tax identifier.</value>
-        public string taxID { get; set; }
+        /// <value>The taxid.</value>
+        public string taxid { get; set; }
 
         /// <summary>
         /// Gets or sets the address.

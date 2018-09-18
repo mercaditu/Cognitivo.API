@@ -13,7 +13,7 @@ namespace Cognitivo.API.Models
         /// Gets or sets the cloud identifier.
         /// </summary>
         /// <value>The cloud identifier.</value>
-        public int cloudID { get; set; }
+        public int cloudId { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -22,16 +22,10 @@ namespace Cognitivo.API.Models
         public string name { get; set; }
 
         /// <summary>
-        /// Gets or sets the name.
+        /// Gets or sets the taxid.
         /// </summary>
-        /// <value>The name.</value>
-        public string alias { get; set; }
-
-        /// <summary>
-        /// Gets or sets the tax identifier.
-        /// </summary>
-        /// <value>The tax identifier.</value>
-        public string taxID { get; set; }
+        /// <value>The taxid.</value>
+        public string taxid { get; set; }
 
         /// <summary>
         /// Gets or sets the address.
@@ -62,6 +56,12 @@ namespace Cognitivo.API.Models
         /// </summary>
         /// <value>The credit limit.</value>
         public int? creditLimit { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="T:Cognitivo.API.Models.Customer"/> is default.
+        /// </summary>
+        /// <value><c>true</c> if is default; otherwise, <c>false</c>.</value>
+        public bool isDefault { get; set; }
 
         /// <summary>
         /// Gets or sets the last updated on.

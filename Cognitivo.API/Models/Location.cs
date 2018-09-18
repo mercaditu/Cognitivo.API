@@ -5,15 +5,17 @@ namespace Cognitivo.API.Models
     {
         public Location() { }
 
+        /// <summary>
+        /// Gets or sets the local identifier.
+        /// </summary>
+        /// <value>The local identifier.</value>
         public int localId { get; set; }
 
-        public int cloudId { get; set; }
-
         /// <summary>
-        /// Gets or sets the company.
+        /// Gets or sets the cloud identifier.
         /// </summary>
-        /// <value>The company.</value>
-        public Company Company { get; set; }
+        /// <value>The cloud identifier.</value>
+        public int cloudId { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -48,7 +50,6 @@ namespace Cognitivo.API.Models
         /// </summary>
         public string country { get; set; }
 
-
         /// <summary>
         /// Gets or sets the Zip.
         /// </summary>
@@ -61,6 +62,7 @@ namespace Cognitivo.API.Models
         /// </summary>
         /// <value>The vat.</value>
         public int? vatCloudId { get; set; }
+
         /// <summary>
         /// Gets or sets code of currency
         /// </summary>

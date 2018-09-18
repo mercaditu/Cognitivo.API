@@ -4,9 +4,9 @@ namespace Cognitivo.API.Models
     public class PaymentContractDetail
     {
         /// <summary>
-        /// Gets or sets the identifier.
+        /// Gets or sets the local identifier.
         /// </summary>
-        /// <value>The identifier.</value>
+        /// <value>The local identifier.</value>
         public int localId { get; set; }
 
         /// <summary>
@@ -15,13 +15,11 @@ namespace Cognitivo.API.Models
         /// <value>The cloud identifier.</value>
         public int cloudId { get; set; }
 
-      
-
         /// <summary>
         /// Gets or sets the contract.
         /// </summary>
         /// <value>The contract.</value>
-        public PaymentContract paymentContract { get; set; }
+        public int paymentContractCloudId { get; set; }
 
         /// <summary>
         /// Gets or sets the coefficient.

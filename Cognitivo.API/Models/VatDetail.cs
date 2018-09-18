@@ -4,9 +4,9 @@ namespace Cognitivo.API.Models
     public class VatDetail
     {
         /// <summary>
-        /// Gets or sets the identifier.
+        /// Gets or sets the local identifier.
         /// </summary>
-        /// <value>The identifier.</value>
+        /// <value>The local identifier.</value>
         public int localId { get; set; }
 
         /// <summary>

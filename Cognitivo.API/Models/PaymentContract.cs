@@ -11,9 +11,9 @@ namespace Cognitivo.API.Models
         }
 
         /// <summary>
-        /// Gets or sets the identifier.
+        /// Gets or sets the local identifier.
         /// </summary>
-        /// <value>The identifier.</value>
+        /// <value>The local identifier.</value>
         public int localId { get; set; }
 
         /// <summary>
@@ -21,12 +21,6 @@ namespace Cognitivo.API.Models
         /// </summary>
         /// <value>The cloud identifier.</value>
         public int cloudId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the country.
-        /// </summary>
-        /// <value>The country.</value>
-        public string country { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -41,9 +35,9 @@ namespace Cognitivo.API.Models
         public List<PaymentContractDetail> details { get; set; }
 
         /// <summary>
-        /// Gets or sets the last updated at.
+        /// Gets or sets the last updated on.
         /// </summary>
-        /// <value>The last updated at.</value>
-        public DateTime lastUpdatedAt { get; set; }
+        /// <value>The last updated on.</value>
+        public DateTime updatedAt { get; set; }
     }
 }

@@ -16,16 +16,28 @@ namespace Cognitivo.API.Models
         public string slugCognitivo { get; set; }
 
         /// <summary>
+        /// Gets or sets the avatar URL.
+        /// </summary>
+        /// <value>The avatar URL.</value>
+        public string logoUrl { get; set; }
+
+        /// <summary>
         /// Gets or sets the name.
         /// </summary>
         /// <value>The name.</value>
         public string name { get; set; }
 
         /// <summary>
-        /// Gets or sets the tax identifier.
+        /// Gets or sets the alias.
         /// </summary>
-        /// <value>The tax identifier.</value>
-        public string taxId { get; set; }
+        /// <value>The alias.</value>
+        public string alias { get; set; }
+
+        /// <summary>
+        /// Gets or sets the taxid.
+        /// </summary>
+        /// <value>The taxid.</value>
+        public string taxid { get; set; }
 
         /// <summary>
         /// Gets or sets the address.

@@ -37,6 +37,9 @@ namespace Cognitivo.API
             Annulled
         }
 
+        /// <summary>
+        /// Time span.
+        /// </summary>
         public enum TimeSpan 
         {
             /// <summary>
@@ -47,6 +50,25 @@ namespace Cognitivo.API
             /// The last month.
             /// </summary>
             LastMonth
+        }
+
+        /// <summary>
+        /// Item types.
+        /// </summary>
+        public enum ItemTypes
+        {
+            /// <summary>
+            /// The stockable.
+            /// </summary>
+            Stockable,
+            /// <summary>
+            /// The service.
+            /// </summary>
+            Service,
+            /// <summary>
+            /// The made to order.
+            /// </summary>
+            MadeToOrder
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace Cognitivo.API.Models
 {
     public class Account
@@ -13,7 +14,7 @@ namespace Cognitivo.API.Models
         /// Gets or sets the cloud identifier.
         /// </summary>
         /// <value>The cloud identifier.</value>
-        public int cloudID { get; set; }
+        public int cloudId { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -37,6 +38,6 @@ namespace Cognitivo.API.Models
         /// Gets or sets the last updated on.
         /// </summary>
         /// <value>The last updated on.</value>
-        public DateTime lastUpdatedOn { get; set; }
+        public DateTime updatedAt { get; set; }
     }
 }

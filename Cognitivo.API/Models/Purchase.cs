@@ -14,28 +14,28 @@ namespace Cognitivo.API.Models
         }
 
         /// <summary>
-        /// Gets or sets the identifier.
+        /// Gets or sets the local identifier.
         /// </summary>
-        /// <value>The identifier.</value>
-        public int Id { get; set; }
+        /// <value>The local identifier.</value>
+        public int localId { get; set; }
 
         /// <summary>
         /// Gets or sets the cloud identifier.
         /// </summary>
         /// <value>The cloud identifier.</value>
-        public int CloudID { get; set; }
+        public int cloudId { get; set; }
 
         /// <summary>
         /// Gets or sets the status.
         /// </summary>
         /// <value>The status.</value>
-        public Enums.Status Status { get; set; }
+        public Enums.Status status { get; set; }
 
         /// <summary>
         /// Gets or sets the location.
         /// </summary>
         /// <value>The location.</value>
-        public Location Location { get; set; }
+        public int locationCloudId { get; set; }
 
         /// <summary>
         /// Gets or sets the date.
@@ -47,60 +47,60 @@ namespace Cognitivo.API.Models
         /// Gets or sets the contact.
         /// </summary>
         /// <value>The contact.</value>
-        public Supplier Supplier { get; set; }
+        public int supplierCloudId { get; set; }
 
         /// <summary>
         /// Gets or sets the payment contract.
         /// </summary>
         /// <value>The payment contract.</value>
-        public PaymentContract PaymentContract { get; set; }
+        public int paymentContractCloudId { get; set; }
 
         /// <summary>
         /// Gets or sets the invoice number.
         /// </summary>
         /// <value>The invoice number.</value>
-        public string InvoiceNumber { get; set; }
+        public string invoiceNumber { get; set; }
 
         /// <summary>
         /// Gets or sets the invoice code.
         /// </summary>
         /// <value>The invoice code.</value>
-        public string InvoiceCode { get; set; }
+        public string invoiceCode { get; set; }
 
         /// <summary>
         /// Gets or sets the code expiry.
         /// </summary>
         /// <value>The code expiry.</value>
-        public DateTime CodeExpiry { get; set; }
+        public DateTime codeExpiry { get; set; }
 
         /// <summary>
         /// Gets or sets the currency.
         /// </summary>
         /// <value>The currency.</value>
-        public string Currency { get; set; }
+        public string currency { get; set; }
 
         /// <summary>
         /// Gets or sets the currency rate.
         /// </summary>
         /// <value>The currency rate.</value>
-        public decimal CurrencyRate { get; set; }
+        public decimal currencyRate { get; set; }
 
         /// <summary>
         /// Gets or sets the details.
         /// </summary>
         /// <value>The details.</value>
-        public List<PurchaseDetail> Details { get; set; }
+        public List<PurchaseDetail> details { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="T:Core.Models.Order"/> is archived.
         /// </summary>
         /// <value><c>true</c> if is archived; otherwise, <c>false</c>.</value>
-        public bool IsArchived { get; set; }
+        public bool isArchived { get; set; }
 
         /// <summary>
         /// Gets or sets the last updated on.
         /// </summary>
         /// <value>The last updated on.</value>
-        public DateTime LastUpdatedOn { get; set; }
+        public DateTime updatedAt { get; set; }
     }
 }
