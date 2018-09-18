@@ -28,17 +28,6 @@ namespace Cognitivo.API
             httpWebRequest.Method = "GET";
             httpWebRequest.Headers.Add("Authorization", "Bearer " + API);
 
-            using (var requestStream = httpWebRequest.GetRequestStream())
-            {
-                using (var streamWriter = new StreamWriter(requestStream))
-                {
-                    //streamWriter.Write(Json);
-                    streamWriter.Flush();
-                    streamWriter.Close();
-                    streamWriter.Dispose();
-                }
-            }
-
             var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
 
             return httpResponse;
@@ -78,16 +67,10 @@ namespace Cognitivo.API
         /// <param name="MyData">My data.</param>
         internal static HttpWebResponse SyncObject(String Uri, object MyData)
         {
-            object json;
-            var serializer = new DataContractJsonSerializer(MyData.GetType());
-
-            using (var stream = new MemoryStream())
-            {
-                serializer.WriteObject(stream, MyData);
-                using (StreamReader sr = new StreamReader(stream)) { json = sr.ReadToEnd(); }
-            }
-
+            var json = JsonConvert.SerializeObject(MyData);
             return Post(Uri, json);
+
+
         }
 
         /// <summary>
@@ -96,20 +79,20 @@ namespace Cognitivo.API
         /// <returns>The list.</returns>
         /// <param name="Uri">URI.</param>
         /// <param name="MyList">My list.</param>
-        internal static HttpWebResponse SyncList(String Uri, List<object> MyList)
+        internal static List<object> SyncList(String Uri, List<object> MyList)
         {
 
             var json = JsonConvert.SerializeObject(MyList);
-            //object json;
-            //var serializer = new DataContractJsonSerializer(MyList.GetType());
-
-            //var stream = new MemoryStream();
-
-            //serializer.WriteObject(stream, MyList);
-            //using (StreamReader sr = new StreamReader(stream)) { json = sr.ReadToEnd(); }
-
-
-            return Post(Uri, json);
+            HttpWebResponse httpResponse = Post(Uri, json);
+            if (httpResponse.StatusCode == HttpStatusCode.OK)
+            {
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    var result = streamReader.ReadToEnd();
+                    MyList = JsonConvert.DeserializeObject(result) as List<object>;
+                }
+            }
+            return MyList;
         }
     }
 }

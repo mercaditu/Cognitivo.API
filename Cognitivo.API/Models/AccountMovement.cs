@@ -5,10 +5,10 @@ namespace Cognitivo.API.Models
     {
         public AccountMovement()
         {
-            Date = DateTime.Now;
-            Debit = 0;
-            Credit = 0;
-            Rate = 1;
+            date = DateTime.Now;
+            debit = 0;
+            credit = 0;
+            currencyRate = 1;
         }
 
         /// <summary>

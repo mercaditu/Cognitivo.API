@@ -1,66 +1,72 @@
 ﻿using System;
 namespace Cognitivo.API.Models
 {
-    public class Customer
+    public class Supplier
     {
         /// <summary>
         /// Gets or sets the identifier.
         /// </summary>
         /// <value>The identifier.</value>
-        public int Id { get; set; }
+        public int localId { get; set; }
 
         /// <summary>
         /// Gets or sets the cloud identifier.
         /// </summary>
         /// <value>The cloud identifier.</value>
-        public int CloudID { get; set; }
-
-        /// <summary>
-        /// Gets or sets the company.
-        /// </summary>
-        /// <value>The company.</value>
-        public Company Company { get; set; }
+        public int cloudID { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
         /// <value>The name.</value>
-        public string Name { get; set; }
+        public string name { get; set; }
+
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>The name.</value>
+        public string alias { get; set; }
 
         /// <summary>
         /// Gets or sets the tax identifier.
         /// </summary>
         /// <value>The tax identifier.</value>
-        public string TaxID { get; set; }
+        public string taxID { get; set; }
 
         /// <summary>
         /// Gets or sets the address.
         /// </summary>
         /// <value>The address.</value>
-        public string Address { get; set; }
+        public string address { get; set; }
 
         /// <summary>
         /// Gets or sets the email.
         /// </summary>
         /// <value>The email.</value>
-        public string Email { get; set; }
+        public string email { get; set; }
 
         /// <summary>
         /// Gets or sets the telephone.
         /// </summary>
         /// <value>The telephone.</value>
-        public string Telephone { get; set; }
+        public string telephone { get; set; }
+
+        /// <summary>
+        /// Gets or sets the lead time.
+        /// </summary>
+        /// <value>The lead time.</value>
+        public int? leadTime { get; set; }
 
         /// <summary>
         /// Gets or sets the credit limit.
         /// </summary>
         /// <value>The credit limit.</value>
-        public int? CreditLimit { get; set; }
+        public int? creditLimit { get; set; }
 
         /// <summary>
         /// Gets or sets the last updated on.
         /// </summary>
         /// <value>The last updated on.</value>
-        public DateTime LastUpdatedOn { get; set; }
+        public DateTime updatedAt { get; set; }
     }
 }

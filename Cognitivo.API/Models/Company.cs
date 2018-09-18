@@ -13,7 +13,7 @@ namespace Cognitivo.API.Models
         /// Gets or sets the cloud identifier.
         /// </summary>
         /// <value>The cloud identifier.</value>
-        public int cloudID { get; set; }
+        public string slugCognitivo { get; set; }
 
         /// <summary>
         /// Gets or sets the name.

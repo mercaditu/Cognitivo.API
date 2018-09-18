@@ -7,13 +7,15 @@ namespace Cognitivo.API.Models
         /// Gets or sets the identifier.
         /// </summary>
         /// <value>The identifier.</value>
-        public int Id { get; set; }
+        public int localId { get; set; }
 
         /// <summary>
         /// Gets or sets the cloud identifier.
         /// </summary>
         /// <value>The cloud identifier.</value>
-        public int CloudID { get; set; }
+        public int cloudId { get; set; }
+
+      
 
         /// <summary>
         /// Gets or sets the contract.
@@ -31,7 +33,7 @@ namespace Cognitivo.API.Models
         /// Gets or sets the percentage.
         /// </summary>
         /// <value>The percentage.</value>
-        public decimal percentage { get; set; }
+        public decimal percent { get; set; }
 
         /// <summary>
         /// Gets or sets the last updated on.

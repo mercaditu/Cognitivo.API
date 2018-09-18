@@ -9,12 +9,14 @@ namespace Cognitivo.API.Models
         public Item()
         {
         }
+        [DataMember]
         /// <summary>
         /// Gets or sets the identifier.
         /// </summary>
         /// <value>The identifier.</value>
         public int localId { get; set; }
 
+        [DataMember]
         /// <summary>
         /// Gets or sets the cloud identifier.
         /// </summary>
@@ -33,21 +35,21 @@ namespace Cognitivo.API.Models
         /// Gets or sets the name.
         /// </summary>
         /// <value>The name.</value>
-        public string Name { get; set; }
+        public string name { get; set; }
 
         [DataMember]
         /// <summary>
         /// Gets or sets the sku.
         /// </summary>
         /// <value>The sku.</value>
-        public string Sku { get; set; }
+        public string sku { get; set; }
 
         [DataMember]
         /// <summary>
         /// Gets or sets the bar code.
         /// </summary>
         /// <value>The bar code.</value>
-        public string BarCode { get; set; }
+        public string barCode { get; set; }
 
 
         /// <summary>
@@ -66,48 +68,48 @@ namespace Cognitivo.API.Models
         /// Gets or sets the vat.
         /// </summary>
         /// <value>The vat.</value>
-        public int Vat_CloudID { get; set; }
+        public int vatId { get; set; }
         [DataMember]
         /// <summary>
         /// Gets or sets the currency.
         /// </summary>
         /// <value>The currency.</value>
-        public string Currency { get; set; }
+        public string currencyCode { get; set; }
         [DataMember]
         /// <summary>
         /// Gets or sets the price.
         /// </summary>
         /// <value>The price.</value>
-        public decimal Price { get; set; }
+        public decimal price { get; set; }
         [DataMember]
         /// <summary>
         /// Gets or sets the cost.
         /// </summary>
         /// <value>The cost.</value>
-        public decimal Cost { get; set; }
+        public decimal cost { get; set; }
         [DataMember]
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="T:Core.Models.Item"/> weigh with scale.
         /// </summary>
         /// <value><c>true</c> if weigh with scale; otherwise, <c>false</c>.</value>
-        public bool WeighWithScale { get; set; }
+        public bool weighWithScale { get; set; }
         [DataMember]
         /// <summary>
         /// Gets or sets the weight.
         /// </summary>
         /// <value>The weight.</value>
-        public decimal Weight { get; set; }
+        public decimal weight { get; set; }
         [DataMember]
         /// <summary>
         /// Gets or sets the volume.
         /// </summary>
         /// <value>The volume.</value>
-        public decimal Volume { get; set; }
+        public decimal volume { get; set; }
         [DataMember]
         /// <summary>
         /// Gets or sets the last updated on.
         /// </summary>
         /// <value>The last updated on.</value>
-        public DateTime LastUpdatedOn { get; set; }
+        public DateTime updatedAt { get; set; }
     }
 }

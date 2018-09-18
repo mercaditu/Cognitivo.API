@@ -14,13 +14,19 @@ namespace Cognitivo.API.Models
         /// Gets or sets the identifier.
         /// </summary>
         /// <value>The identifier.</value>
-        public int Id { get; set; }
+        public int localId { get; set; }
 
         /// <summary>
         /// Gets or sets the cloud identifier.
         /// </summary>
         /// <value>The cloud identifier.</value>
         public int cloudId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the country.
+        /// </summary>
+        /// <value>The country.</value>
+        public string country { get; set; }
 
         /// <summary>
         /// Gets or sets the name.

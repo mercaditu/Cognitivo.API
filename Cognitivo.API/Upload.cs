@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
@@ -20,7 +21,7 @@ namespace Cognitivo.API
         public Upload(string API_Key, Enums.SyncWith SyncWith = Enums.SyncWith.Production)
         {
             Http.API = API_Key;
-            Http.Url = (SyncWith == Enums.SyncWith.Production) ? "https://www.cognitivo.com/api/" : "https://test.cognitivo.in/api/";
+            Http.Url = (SyncWith == Enums.SyncWith.Production) ? "https://www.cognitivo.com/api/" : "https://localhost:8000/api/";
         }
 
         /// <summary>
@@ -29,102 +30,96 @@ namespace Cognitivo.API
         /// <returns>The base..</returns>
         /// <param name="CompanySlug">Company slug.</param>
         /// <param name="Data">Data.</param>
+        public List<object> Transaction(string CompanySlug, List<object> Data)
+        {
+            Data = Http.SyncList(CompanySlug + "/sync/item", Data);
+            return Data;
+        }
+        public List<object> ItemMovements(string CompanySlug, List<object> Data)
+        {
+            Data = Http.SyncList(CompanySlug + "/sync/itemmovements", Data);
+            return Data;
+        }
+        public List<object> AccountMovements(string CompanySlug, List<object> Data)
+        {
+            Data = Http.SyncList(CompanySlug + "/sync/accountmovements", Data);
+            return Data;
+        }
+
+
         public List<object> Item(string CompanySlug, List<object> Data)
         {
-            HttpWebResponse httpResponse = Http.SyncList(CompanySlug + "/sync/item", Data);
-
-            if (httpResponse.StatusCode == HttpStatusCode.OK)
-            {
-                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-                {
-                    var result = streamReader.ReadToEnd();
-
-                    MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(result));
-                    DataContractJsonSerializer service = new DataContractJsonSerializer(Data.GetType());
-                    Data = service.ReadObject(stream) as List<object>;
-                    stream.Close();
-                }
-            }
-
+            Data = Http.SyncList(CompanySlug + "/sync/item", Data);
+            return Data;
+        }
+        public List<object> Account(string CompanySlug, List<object> Data)
+        {
+            Data = Http.SyncList(CompanySlug + "/sync/account", Data);
+            return Data;
+        }
+        public List<object> Company(string CompanySlug, List<object> Data)
+        {
+            Data = Http.SyncList(CompanySlug + "/sync/company", Data);
             return Data;
         }
 
-        /// <summary>
-        /// Transactional the specified CompanySlug and Data.
-        /// </summary>
-        /// <returns>The transactional.</returns>
-        /// <param name="CompanySlug">Company slug.</param>
-        /// <param name="Data">Data.</param>
-        public Data.Transactional Transactional(string CompanySlug, Data.Transactional Data)
+        public List<object> Customer(string CompanySlug, List<object> Data)
         {
-            HttpWebResponse httpResponse = Http.SyncObject(CompanySlug + "/upload/transactional/", Data);
-
-            if (httpResponse.StatusCode == HttpStatusCode.OK)
-            {
-                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-                {
-                    var result = streamReader.ReadToEnd();
-
-                    MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(result));
-                    DataContractJsonSerializer service = new DataContractJsonSerializer(Data.GetType());
-                    Data = service.ReadObject(stream) as Data.Transactional;
-                    stream.Close();
-                }
-            }
-
+            Data = Http.SyncList(CompanySlug + "/sync/contact", Data);
             return Data;
         }
-
-        /// <summary>
-        /// Sales the specified CompanySlug and ListOfSales.
-        /// </summary>
-        /// <returns>The sales.</returns>
-        /// <param name="CompanySlug">Company slug.</param>
-        /// <param name="ListOfSales">List of sales.</param>
-        public List<Models.Sales> Sales(string CompanySlug, List<Models.Sales> ListOfSales)
+        public List<object> ItemCategories(string CompanySlug, List<object> Data)
         {
-            HttpWebResponse httpResponse = Http.SyncObject(CompanySlug + "/upload/sales/", ListOfSales);
-
-            if (httpResponse.StatusCode == HttpStatusCode.OK)
-            {
-                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-                {
-                    var result = streamReader.ReadToEnd();
-
-                    MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(result));
-                    DataContractJsonSerializer service = new DataContractJsonSerializer(ListOfSales.GetType());
-                    ListOfSales = service.ReadObject(stream) as List<Models.Sales>;
-                    stream.Close();
-                }
-            }
-
-            return ListOfSales;
+            Data = Http.SyncList(CompanySlug + "/sync/contact", Data);
+            return Data;
         }
-
-        /// <summary>
-        /// Purchases the specified CompanySlug and ListOfPurchases.
-        /// </summary>
-        /// <returns>The purchases.</returns>
-        /// <param name="CompanySlug">Company slug.</param>
-        /// <param name="ListOfPurchases">List of purchases.</param>
-        public List<Models.Purchase> Purchases(string CompanySlug, List<Models.Purchase> ListOfPurchases)
+        public List<object> Locations(string CompanySlug, List<object> Data)
         {
-            HttpWebResponse httpResponse = Http.SyncObject(CompanySlug + "/upload/sales/", ListOfPurchases);
-
-            if (httpResponse.StatusCode == HttpStatusCode.OK)
-            {
-                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-                {
-                    var result = streamReader.ReadToEnd();
-
-                    MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(result));
-                    DataContractJsonSerializer service = new DataContractJsonSerializer(ListOfPurchases.GetType());
-                    ListOfPurchases = service.ReadObject(stream) as List<Models.Purchase>;
-                    stream.Close();
-                }
-            }
-
-            return ListOfPurchases;
+            Data = Http.SyncList(CompanySlug + "/sync/Locations", Data);
+            return Data;
         }
+        public List<object> PaymentContracts(string CompanySlug, List<object> Data)
+        {
+            Data = Http.SyncList(CompanySlug + "/sync/PaymentContracts", Data);
+            return Data;
+        }
+        public List<object> PaymentContractDetails(string CompanySlug, List<object> Data)
+        {
+            Data = Http.SyncList(CompanySlug + "/sync/PaymentContractDetails", Data);
+            return Data;
+        }
+        public List<object> PaymentTypes(string CompanySlug, List<object> Data)
+        {
+            Data = Http.SyncList(CompanySlug + "/sync/PaymentTypes", Data);
+            return Data;
+        }
+        public List<object> PointOfSales(string CompanySlug, List<object> Data)
+        {
+            Data = Http.SyncList(CompanySlug + "/sync/PointOfSales", Data);
+            return Data;
+        }
+        public List<object> Ranges(string CompanySlug, List<object> Data)
+        {
+            Data = Http.SyncList(CompanySlug + "/sync/Ranges", Data);
+            return Data;
+        }
+        public List<object> Suppliers(string CompanySlug, List<object> Data)
+        {
+            Data = Http.SyncList(CompanySlug + "/sync/Suppliers", Data);
+            return Data;
+        }
+        public List<object> Users(string CompanySlug, List<object> Data)
+        {
+            Data = Http.SyncList(CompanySlug + "/sync/Users", Data);
+            return Data;
+        }
+        public List<object> Vats(string CompanySlug, List<object> Data)
+        {
+            Data = Http.SyncList(CompanySlug + "/sync/Vats", Data);
+            return Data;
+        }
+      
+
+
     }
 }

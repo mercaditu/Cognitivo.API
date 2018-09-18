@@ -5,9 +5,9 @@ namespace Cognitivo.API.Models
     {
         public Location() { }
 
-        public int Id { get; set; }
+        public int localId { get; set; }
 
-        public int CloudID { get; set; }
+        public int cloudId { get; set; }
 
         /// <summary>
         /// Gets or sets the company.
@@ -19,36 +19,57 @@ namespace Cognitivo.API.Models
         /// Gets or sets the name.
         /// </summary>
         /// <value>The name.</value>
-        public string Name { get; set; }
+        public string name { get; set; }
 
         /// <summary>
         /// Gets or sets the address.
         /// </summary>
         /// <value>The address.</value>
-        public string Address { get; set; }
+        public string address { get; set; }
 
         /// <summary>
         /// Gets or sets the telephone.
         /// </summary>
         /// <value>The telephone.</value>
-        public string Telephone { get; set; }
+        public string telephone { get; set; }
 
         /// <summary>
-        /// Gets or sets the email.
+        /// Gets or sets the Telephone.
         /// </summary>
-        /// <value>The email.</value>
-        public string Email { get; set; }
+        public string city { get; set; }
+
+        /// <summary>
+        /// Gets or sets the State.
+        /// </summary>
+        public string state { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Country.
+        /// </summary>
+        public string country { get; set; }
+
+
+        /// <summary>
+        /// Gets or sets the Zip.
+        /// </summary>
+        public string zip { get; set; }
+
+
 
         /// <summary>
         /// Gets or sets the vat.
         /// </summary>
         /// <value>The vat.</value>
-        public Vat Vat { get; set; }
+        public int? vatCloudId { get; set; }
+        /// <summary>
+        /// Gets or sets code of currency
+        /// </summary>
+        public string currencyCode { get; set; }
 
         /// <summary>
         /// Gets or sets the last updated on.
         /// </summary>
         /// <value>The last updated on.</value>
-        public DateTime LastUpdatedOn { get; set; }
+        public DateTime updatedAt { get; set; }
     }
 }

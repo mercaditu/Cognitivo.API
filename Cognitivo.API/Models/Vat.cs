@@ -7,20 +7,20 @@ namespace Cognitivo.API.Models
     {
         public Vat()
         {
-            Details = new List<VatDetail>();
+            details = new List<VatDetail>();
         }
 
         /// <summary>
         /// Gets or sets the identifier.
         /// </summary>
         /// <value>The identifier.</value>
-        public int Id { get; set; }
+        public int localId { get; set; }
 
         /// <summary>
         /// Gets or sets the cloud identifier.
         /// </summary>
         /// <value>The cloud identifier.</value>
-        public int CloudID { get; set; }
+        public int cloudId { get; set; }
 
         /// <summary>
         /// Gets or sets the company.
@@ -32,18 +32,22 @@ namespace Cognitivo.API.Models
         /// Name for easy recognition.
         /// </summary>
         /// <value>The name.</value>
-        public string Name { get; set; }
+        public string name { get; set; }
+        /// <summary>
+        /// Country
+        /// </summary>
+        public string country { get; set; }
 
         /// <summary>
         /// List of Details 
         /// </summary>
         /// <value>The details.</value>
-        public List<VatDetail> Details { get; set; }
+        public List<VatDetail> details { get; set; }
 
         /// <summary>
         /// Gets or sets the last updated on.
         /// </summary>
         /// <value>The last updated on.</value>
-        public DateTime LastUpdatedOn { get; set; }
+        public DateTime updatedAt { get; set; }
     }
 }

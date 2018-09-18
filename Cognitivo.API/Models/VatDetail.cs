@@ -7,36 +7,36 @@ namespace Cognitivo.API.Models
         /// Gets or sets the identifier.
         /// </summary>
         /// <value>The identifier.</value>
-        public int Id { get; set; }
+        public int localId { get; set; }
 
         /// <summary>
         /// Gets or sets the cloud identifier.
         /// </summary>
         /// <value>The cloud identifier.</value>
-        public int CloudID { get; set; }
+        public int cloudId { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
         /// <value>The name.</value>
-        public string Name { get; set; }
+        public string name { get; set; }
 
         /// <summary>
         /// Gets or sets the coefficient.
         /// </summary>
         /// <value>The coefficient.</value>
-        public decimal Coefficient { get; set; }
+        public decimal coefficient { get; set; }
 
         /// <summary>
         /// Gets or sets the percentage.
         /// </summary>
         /// <value>The percentage.</value>
-        public decimal Percentage { get; set; }
+        public decimal percentage { get; set; }
 
         /// <summary>
         /// Gets or sets the last updated on.
         /// </summary>
         /// <value>The last updated on.</value>
-        public DateTime LastUpdatedOn { get; set; }
+        public DateTime updatedAt { get; set; }
     }
 }
