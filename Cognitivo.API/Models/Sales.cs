@@ -9,8 +9,8 @@ namespace Cognitivo.API.Models
         public Sales()
         {
             Date = DateTime.Now;
-            Details = new List<SalesDetail>();
-            IsArchived = false;
+            details = new List<SalesDetail>();
+            isArchived = false;
         }
 
         /// <summary>

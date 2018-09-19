@@ -21,7 +21,7 @@ namespace Cognitivo.API
         public Upload(string API_Key, Enums.SyncWith SyncWith = Enums.SyncWith.Production)
         {
             Http.API = API_Key;
-            Http.Url = (SyncWith == Enums.SyncWith.Production) ? "https://www.cognitivo.com/api/" : "https://localhost:8000/api/";
+            Http.Url = (SyncWith == Enums.SyncWith.Production) ? "https://www.cognitivo.com/api/" : "https://test.cognitivo.in/api/";
         }
 
         /// <summary>

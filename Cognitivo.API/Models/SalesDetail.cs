@@ -5,7 +5,7 @@ namespace Cognitivo.API.Models
     {
         public SalesDetail()
         {
-            Quantity = 1;
+            quantity = 1;
         }
 
         /// <summary>

@@ -135,23 +135,7 @@ namespace Cognitivo.API
             return ItemCategorys;
             //return new List<Models.Sales>();
         }
-        public List<Models.ItemPriceList> ItemPriceList(string CompanySlug, Enums.TimeSpan Timespan)
-        {
-            if (CompanySlug == "") { throw new Exception("Company Slug is blank. Please assign before performing sync."); }
-            List<Models.ItemPriceList> ItemPriceList = new List<Models.ItemPriceList>();
-            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/itempricelist");
-            if (httpResponse.StatusCode == HttpStatusCode.OK)
-            {
-
-                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
-                {
-                    var result = streamReader.ReadToEnd();
-                    ItemPriceList = JsonConvert.DeserializeObject(result) as List<Models.ItemPriceList>;
-                }
-            }
-            return ItemPriceList;
-            //return new List<Models.Sales>();
-        }
+      
         public List<Models.Location> Location(string CompanySlug, Enums.TimeSpan Timespan)
         {
             if (CompanySlug == "") { throw new Exception("Company Slug is blank. Please assign before performing sync."); }

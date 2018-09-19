@@ -13,7 +13,7 @@ namespace Cognitivo.API.Data
         List<Models.Customer> Customers { get; set; }
         public List<Models.Item> Items { get; set; }
         List<Models.ItemCategory> ItemCategories { get; set; }
-        List<Models.ItemPriceList> ItemPriceLists { get; set; }
+        
 
         List<Models.Location> Locations { get; set; }
         List<Models.PaymentContract> PaymentContracts { get; set; }
