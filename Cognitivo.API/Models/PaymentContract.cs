@@ -39,5 +39,7 @@ namespace Cognitivo.API.Models
         /// </summary>
         /// <value>The last updated on.</value>
         public DateTime updatedAt { get; set; }
+
+        public Enums.Action action { get; set; }
     }
 }

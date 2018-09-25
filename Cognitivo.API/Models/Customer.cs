@@ -55,7 +55,7 @@ namespace Cognitivo.API.Models
         /// Gets or sets the credit limit.
         /// </summary>
         /// <value>The credit limit.</value>
-        public int? creditLimit { get; set; }
+        public decimal? creditLimit { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="T:Cognitivo.API.Models.Customer"/> is default.
@@ -68,5 +68,7 @@ namespace Cognitivo.API.Models
         /// </summary>
         /// <value>The last updated on.</value>
         public DateTime updatedAt { get; set; }
+
+        public Enums.Action action { get;  set; }
     }
 }

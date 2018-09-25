@@ -74,6 +74,15 @@ namespace Cognitivo.API.Models
         /// <value>The type.</value>
         public Enums.ItemTypes type { get; set; }
 
+
+        [DataMember]
+        /// <summary>
+        /// Gets or sets the type.
+        /// </summary>
+        /// <value>The status.</value>
+        public Enums.Action action { get; set; }
+        
+
         [DataMember]
         /// <summary>
         /// Gets or sets the category.
@@ -86,7 +95,7 @@ namespace Cognitivo.API.Models
         /// Gets or sets the vat.
         /// </summary>
         /// <value>The vat.</value>
-        public int vatId { get; set; }
+        public int? vatId { get; set; }
 
         [DataMember]
         /// <summary>

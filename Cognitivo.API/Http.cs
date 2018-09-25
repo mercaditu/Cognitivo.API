@@ -79,20 +79,22 @@ namespace Cognitivo.API
         /// <returns>The list.</returns>
         /// <param name="Uri">URI.</param>
         /// <param name="MyList">My list.</param>
-        internal static List<object> SyncList(String Uri, List<object> MyList)
+        internal static string SyncList(String Uri, List<object> MyList)
         {
-
+            string result = "";
             var json = JsonConvert.SerializeObject(MyList);
             HttpWebResponse httpResponse = Post(Uri, json);
+
             if (httpResponse.StatusCode == HttpStatusCode.OK)
             {
                 using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
                 {
-                    var result = streamReader.ReadToEnd();
-                    MyList = JsonConvert.DeserializeObject(result) as List<object>;
+                    result = streamReader.ReadToEnd();
+                    
+                   
                 }
             }
-            return MyList;
+            return result;
         }
     }
 }

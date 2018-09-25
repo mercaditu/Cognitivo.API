@@ -39,6 +39,12 @@ namespace Cognitivo.API.Models
         public int itemCloudId { get; set; }
 
         /// <summary>
+        /// Gets or sets the item.
+        /// </summary>
+        /// <value>The item.</value>
+        public int itemLocalId { get; set; }
+
+        /// <summary>
         /// Gets or sets the item description.
         /// </summary>
         /// <value>The item description.</value>

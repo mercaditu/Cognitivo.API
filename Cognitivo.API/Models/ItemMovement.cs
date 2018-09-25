@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Runtime.Serialization;
+
 namespace Cognitivo.API.Models
 {
     public class ItemMovement
@@ -61,5 +63,12 @@ namespace Cognitivo.API.Models
         /// </summary>
         /// <value>The last updated on.</value>
         public DateTime updatedAt { get; set; }
+
+        [DataMember]
+        /// <summary>
+        /// Gets or sets the type.
+        /// </summary>
+        /// <value>The status.</value>
+        public Enums.Action action { get; set; }
     }
 }

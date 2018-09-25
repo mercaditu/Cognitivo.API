@@ -70,5 +70,19 @@ namespace Cognitivo.API
             /// </summary>
             MadeToOrder
         }
+
+        /// <summary>
+        /// RowStatus
+        /// </summary>
+        public enum Action
+        {
+            CreatedOnCloud=1,
+            UpdatedOnCloud=2,
+            CreateOnLocal = 3,
+            UpdatedOnLocal =4,
+            NoChanges=5
+
+           
+        }
     }
 }

@@ -24,8 +24,8 @@ namespace Cognitivo.API.Models
         /// <summary>
         /// Gets or sets the coefficient.
         /// </summary>
-        /// <value>The coefficient.</value>
-        public decimal coefficient { get; set; }
+        /// <value>The offset.</value>
+        public decimal offset { get; set; }
 
         /// <summary>
         /// Gets or sets the percentage.
