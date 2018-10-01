@@ -58,7 +58,19 @@ namespace Cognitivo.API
         public List<Models.Item> Item(string CompanySlug, List<object> Data)
         {
             string result = Http.SyncList(CompanySlug + "/sync/item", Data);
-            List<Models.Item> MyList = JsonConvert.DeserializeObject<List<Models.Item>>(result);
+            List<Models.Item> MyList = new List<Item>();
+            if (result.Contains("Error"))
+            {
+                
+                Models.Item item = new Item();
+                item.name = result;
+                MyList.Add(item);
+            }
+            else
+            {
+                MyList = JsonConvert.DeserializeObject<List<Models.Item>>(result);
+            }
+           
             return MyList;
 
         }
