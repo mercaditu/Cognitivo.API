@@ -15,7 +15,11 @@ namespace Cognitivo.API
             /// <summary>
             /// The playground.
             /// </summary>
-            Playground
+            Playground,
+            /// <summary>
+            /// The Local
+            /// </summary>
+            Local,
         }
 
         /// <summary>

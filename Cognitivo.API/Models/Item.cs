@@ -30,7 +30,7 @@ namespace Cognitivo.API.Models
         /// </summary>
         /// <value>The global item cloud identifier.</value>
         [DataMember]
-        public int globalItemCloudId { get; set; }
+        public int? globalItem { get; set; }
 
         [DataMember]
         /// <summary>
@@ -95,7 +95,7 @@ namespace Cognitivo.API.Models
         /// Gets or sets the vat.
         /// </summary>
         /// <value>The vat.</value>
-        public int? vatId { get; set; }
+        public int? vatCloudId { get; set; }
 
         [DataMember]
         /// <summary>
@@ -109,14 +109,14 @@ namespace Cognitivo.API.Models
         /// Gets or sets the price.
         /// </summary>
         /// <value>The price.</value>
-        public decimal price { get; set; }
+        public decimal? price { get; set; }
 
         [DataMember]
         /// <summary>
         /// Gets or sets the cost.
         /// </summary>
         /// <value>The cost.</value>
-        public decimal cost { get; set; }
+        public decimal? cost { get; set; }
 
         [DataMember]
         /// <summary>
@@ -130,14 +130,14 @@ namespace Cognitivo.API.Models
         /// Gets or sets the weight.
         /// </summary>
         /// <value>The weight.</value>
-        public decimal weight { get; set; }
+        public decimal? weight { get; set; }
 
         [DataMember]
         /// <summary>
         /// Gets or sets the volume.
         /// </summary>
         /// <value>The volume.</value>
-        public decimal volume { get; set; }
+        public decimal? volume { get; set; }
 
         /// <summary>
         /// Gets or sets the is private.
