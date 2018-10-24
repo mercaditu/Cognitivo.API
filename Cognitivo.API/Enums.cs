@@ -80,13 +80,26 @@ namespace Cognitivo.API
         /// </summary>
         public enum Action
         {
-            CreatedOnCloud=1,
-            UpdatedOnCloud=2,
+            /// <summary>
+            /// Create on cloud.
+            /// </summary>
+            CreateOnCloud = 1,
+            /// <summary>
+            /// Update on cloud.
+            /// </summary>
+            UpdateOnCloud = 2,
+            /// <summary>
+            /// Create on local.
+            /// </summary>
             CreateOnLocal = 3,
-            UpdatedOnLocal =4,
-            NoChanges=5
-
-           
+            /// <summary>
+            /// Update on local.
+            /// </summary>
+            UpdateOnLocal = 4,
+            /// <summary>
+            /// No changes.
+            /// </summary>
+            NoChanges = 5
         }
     }
 }
