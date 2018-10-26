@@ -154,6 +154,9 @@ namespace Cognitivo.API.Models
         public bool isActive { get; set; }
 
         [DataMember]
+        public bool isStockable { get; set; }
+
+        [DataMember]
         /// <summary>
         /// Gets or sets the last updated on.
         /// </summary>

@@ -44,30 +44,42 @@ namespace Cognitivo.API
         /// <returns>The base..</returns>
         /// <param name="CompanySlug">Company slug.</param>
         /// <param name="Data">Data.</param>
-        //public List<Sales> Transaction(string CompanySlug, List<object> Data)
-        //{
-        //    string result = Http.SyncList(CompanySlug + "/sync/transaction", Data);
-        //    List<Sales> MyList = JsonConvert.DeserializeObject<List<Sales>>(result);
-        //    return MyList;
+        public List<Sales> Transaction(string CompanySlug, List<object> Data)
+        {
+            string result = "";
+            HttpWebResponse response =Http.SyncList(CompanySlug + "/upload/transaction", Data);
+
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                HttpListenerException ex = new HttpListenerException();
+                throw ex;
+            }
+
+            using (var streamReader = new StreamReader(response.GetResponseStream()))
+            {
+                result = streamReader.ReadToEnd();
+            }
+            List<Sales> MyList = JsonConvert.DeserializeObject<List<Sales>>(result);
+            return MyList;
 
 
-        //}
+        }
         //public List<ItemMovement> ItemMovements(string CompanySlug, List<object> Data)
         //{
-        //    string result = Http.SyncList(CompanySlug + "/sync/itemmovements", Data);
+        //    string result = Http.SyncList(CompanySlug + "/upload/itemmovements", Data);
         //    List<ItemMovement> MyList = JsonConvert.DeserializeObject<List<ItemMovement>>(result);
         //    return MyList;
         //}
         //public List<AccountMovement> AccountMovements(string CompanySlug, List<object> Data)
         //{
-        //    string result = Http.SyncList(CompanySlug + "/sync/accountmovements", Data);
+        //    string result = Http.SyncList(CompanySlug + "/upload/accountmovements", Data);
         //    List<AccountMovement> MyList = JsonConvert.DeserializeObject<List<AccountMovement>>(result);
         //    return MyList;
 
         //}
 
 
-        public Models.ItemData Item(string CompanySlug, List<object> Data)
+        public List<Item> Item(string CompanySlug, List<object> Data)
         {
             string result = "";
             HttpWebResponse response = Http.SyncList(CompanySlug + "/upload/item", Data);
@@ -79,78 +91,119 @@ namespace Cognitivo.API
             }
 
 
+
+            Models.ItemData MyList = new ItemData();
+            MyList = JsonConvert.DeserializeObject<Models.ItemData>(result);
+
+            return MyList.data;
+        }
+
+        public List<Customer> Customer(string CompanySlug, List<object> Data)
+        {
+            string result = "";
+            HttpWebResponse response = Http.SyncList(CompanySlug + "/upload/customer", Data);
+
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                HttpListenerException ex = new HttpListenerException();
+                throw ex;
+            }
             using (var streamReader = new StreamReader(response.GetResponseStream()))
             {
                 result = streamReader.ReadToEnd();
             }
 
-            Models.ItemData MyList = new ItemData();
-            MyList = JsonConvert.DeserializeObject<Models.ItemData>(result);
+            Models.CustomerData MyList = new CustomerData();
+            MyList = JsonConvert.DeserializeObject<Models.CustomerData>(result);
 
-            return MyList;
+            return MyList.data;
         }
-
-        //public List<Models.Customer> Customer(string CompanySlug, List<object> Data)
-        //{
-        //    //string result = Http.SyncList(CompanySlug + "/sync/customer", Data);
-        //    //List<Models.Customer> MyList = JsonConvert.DeserializeObject<List<Models.Customer>>(result);
-        //    //return MyList;
-        //}
 
         //public List<object> ItemCategories(string CompanySlug, List<object> Data)
         //{
-        //    Data = Http.SyncList(CompanySlug + "/sync/contact", Data);
+        //    Data = Http.SyncList(CompanySlug + "/upload/contact", Data);
         //    return Data;
         //}
         //public List<object> Locations(string CompanySlug, List<object> Data)
         //{
-        //    Data = Http.SyncList(CompanySlug + "/sync/Locations", Data);
+        //    Data = Http.SyncList(CompanySlug + "/upload/Locations", Data);
         //    return Data;
         //}
-        //public List<Models.PaymentContract> PaymentContracts(string CompanySlug, List<object> Data)
-        //{
-        //    string result = Http.SyncList(CompanySlug + "/sync/contract", Data);
-        //    List<Models.PaymentContract> MyList = JsonConvert.DeserializeObject<List<Models.PaymentContract>>(result);
-        //    return MyList;
+        public List<Models.PaymentContract> PaymentContracts(string CompanySlug, List<object> Data)
+        {
+            string result = "";
+            HttpWebResponse response = Http.SyncList(CompanySlug + "/upload/contract", Data);
 
-        //}
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                HttpListenerException ex = new HttpListenerException();
+                throw ex;
+            }
+            using (var streamReader = new StreamReader(response.GetResponseStream()))
+            {
+                result = streamReader.ReadToEnd();
+            }
+
+            Models.PaymentContractData MyList = new PaymentContractData();
+            MyList = JsonConvert.DeserializeObject<Models.PaymentContractData>(result);
+
+            return MyList.data;
+
+
+        }
         //public List<object> PaymentContractDetails(string CompanySlug, List<object> Data)
         //{
-        //    Data = Http.SyncList(CompanySlug + "/sync/PaymentContractDetails", Data);
+        //    Data = Http.SyncList(CompanySlug + "/upload/PaymentContractDetails", Data);
         //    return Data;
         //}
         //public List<object> PaymentTypes(string CompanySlug, List<object> Data)
         //{
-        //    Data = Http.SyncList(CompanySlug + "/sync/PaymentTypes", Data);
+        //    Data = Http.SyncList(CompanySlug + "/upload/PaymentTypes", Data);
         //    return Data;
         //}
         //public List<object> PointOfSales(string CompanySlug, List<object> Data)
         //{
-        //    Data = Http.SyncList(CompanySlug + "/sync/PointOfSales", Data);
+        //    Data = Http.SyncList(CompanySlug + "/upload/PointOfSales", Data);
         //    return Data;
         //}
         //public List<object> Ranges(string CompanySlug, List<object> Data)
         //{
-        //    Data = Http.SyncList(CompanySlug + "/sync/Ranges", Data);
+        //    Data = Http.SyncList(CompanySlug + "/upload/Ranges", Data);
         //    return Data;
         //}
         //public List<object> Suppliers(string CompanySlug, List<object> Data)
         //{
-        //    Data = Http.SyncList(CompanySlug + "/sync/Suppliers", Data);
+        //    Data = Http.SyncList(CompanySlug + "/upload/Suppliers", Data);
         //    return Data;
         //}
         //public List<object> Users(string CompanySlug, List<object> Data)
         //{
-        //    Data = Http.SyncList(CompanySlug + "/sync/Users", Data);
+        //    Data = Http.SyncList(CompanySlug + "/upload/Users", Data);
         //    return Data;
         //}
-        //public List<Vat> Vats(string CompanySlug, List<object> Data)
-        //{
-        //    string result = Http.SyncList(CompanySlug + "/sync/saletax", Data);
-        //    List<Vat> MyList = JsonConvert.DeserializeObject<List<Vat>>(result);
-        //    return MyList;
+        public List<Vat> Vats(string CompanySlug, List<object> Data)
+        {
+            string result = "";
+            HttpWebResponse response = Http.SyncList(CompanySlug + "/upload/saletax", Data); ;
 
-        //}
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                HttpListenerException ex = new HttpListenerException();
+                throw ex;
+            }
+            using (var streamReader = new StreamReader(response.GetResponseStream()))
+            {
+                result = streamReader.ReadToEnd();
+            }
+
+            Models.VatData MyList = new VatData();
+            MyList = JsonConvert.DeserializeObject<Models.VatData>(result);
+
+            return MyList.data;
+
+          
+
+        }
 
 
 

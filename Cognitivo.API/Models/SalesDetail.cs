@@ -45,10 +45,15 @@ namespace Cognitivo.API.Models
         public int itemLocalId { get; set; }
 
         /// <summary>
-        /// Gets or sets the item description.
+        /// Gets or sets the item name.
         /// </summary>
         /// <value>The item description.</value>
-        public string itemDescription { get; set; }
+        public string name { get; set; }
+        /// <summary>
+        /// Gets or sets the item sku.
+        /// </summary>
+        public string sku { get; set; }
+
 
         /// <summary>
         /// Gets or sets the cost.
@@ -73,5 +78,6 @@ namespace Cognitivo.API.Models
         /// </summary>
         /// <value>The last updated on.</value>
         public DateTime updatedAt { get; set; }
+
     }
 }
