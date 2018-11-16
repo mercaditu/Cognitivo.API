@@ -59,8 +59,8 @@ namespace Cognitivo.API
             {
                 result = streamReader.ReadToEnd();
             }
-            List<Sales> MyList = JsonConvert.DeserializeObject<List<Sales>>(result);
-            return MyList;
+            SalesData MyList = JsonConvert.DeserializeObject<SalesData>(result);
+            return MyList.data;
 
 
         }
@@ -90,12 +90,18 @@ namespace Cognitivo.API
                 throw ex;
             }
 
-
+            using (var streamReader = new StreamReader(response.GetResponseStream()))
+            {
+                result = streamReader.ReadToEnd();
+            }
 
             Models.ItemData MyList = new ItemData();
             MyList = JsonConvert.DeserializeObject<Models.ItemData>(result);
 
             return MyList.data;
+
+
+
         }
 
         public List<Customer> Customer(string CompanySlug, List<object> Data)
@@ -129,28 +135,28 @@ namespace Cognitivo.API
         //    Data = Http.SyncList(CompanySlug + "/upload/Locations", Data);
         //    return Data;
         //}
-        public List<Models.PaymentContract> PaymentContracts(string CompanySlug, List<object> Data)
-        {
-            string result = "";
-            HttpWebResponse response = Http.SyncList(CompanySlug + "/upload/contract", Data);
+        //public List<Models.PaymentContract> PaymentContracts(string CompanySlug, List<object> Data)
+        //{
+        //    string result = "";
+        //    HttpWebResponse response = Http.SyncList(CompanySlug + "/upload/contract", Data);
 
-            if (response.StatusCode != HttpStatusCode.OK)
-            {
-                HttpListenerException ex = new HttpListenerException();
-                throw ex;
-            }
-            using (var streamReader = new StreamReader(response.GetResponseStream()))
-            {
-                result = streamReader.ReadToEnd();
-            }
+        //    if (response.StatusCode != HttpStatusCode.OK)
+        //    {
+        //        HttpListenerException ex = new HttpListenerException();
+        //        throw ex;
+        //    }
+        //    using (var streamReader = new StreamReader(response.GetResponseStream()))
+        //    {
+        //        result = streamReader.ReadToEnd();
+        //    }
 
-            Models.PaymentContractData MyList = new PaymentContractData();
-            MyList = JsonConvert.DeserializeObject<Models.PaymentContractData>(result);
+        //    Models.PaymentContractData MyList = new PaymentContractData();
+        //    MyList = JsonConvert.DeserializeObject<Models.PaymentContractData>(result);
 
-            return MyList.data;
+        //    return MyList.data;
 
 
-        }
+        //}
         //public List<object> PaymentContractDetails(string CompanySlug, List<object> Data)
         //{
         //    Data = Http.SyncList(CompanySlug + "/upload/PaymentContractDetails", Data);

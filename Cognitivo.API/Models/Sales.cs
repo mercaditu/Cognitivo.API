@@ -10,7 +10,7 @@ namespace Cognitivo.API.Models
   
         public Sales()
         {
-            Date = DateTime.Now;
+            date = DateTime.Now;
             details = new List<SalesDetail>();
             isArchived = false;
         }
@@ -48,25 +48,25 @@ namespace Cognitivo.API.Models
         /// Gets or sets the location.
         /// </summary>
         /// <value>The location.</value>
-        public int locationCloudId { get; set; }
+        public int? locationCloudId { get; set; }
         [DataMember]
         /// <summary>
         /// Gets or sets the date.
         /// </summary>
         /// <value>The date.</value>
-        public DateTime Date { get; set; }
+        public DateTime date { get; set; }
         [DataMember]
         /// <summary>
         /// Gets or sets the contact.
         /// </summary>
         /// <value>The contact.</value>
-        public int customerCloudId { get; set; }
+        public int? customerCloudId { get; set; }
         [DataMember]
         /// <summary>
         /// Gets or sets the payment contract.
         /// </summary>
         /// <value>The payment contract.</value>
-        public int paymentContractCloudId { get; set; }
+        public int? paymentContractCloudId { get; set; }
         [DataMember]
         /// <summary>
         /// Gets or sets the invoice number.
@@ -78,7 +78,7 @@ namespace Cognitivo.API.Models
         /// Gets or sets the invoice code.
         /// </summary>
         /// <value>The invoice code.</value>
-        public string code { get; set; }
+        public string InvoiceCode { get; set; }
         [DataMember]
         /// <summary>
         /// Gets or sets the code expiry.
@@ -90,13 +90,13 @@ namespace Cognitivo.API.Models
         /// Gets or sets the currency.
         /// </summary>
         /// <value>The currency.</value>
-        public string currency { get; set; }
+        public string currencyCode { get; set; }
         [DataMember]
         /// <summary>
         /// Gets or sets the currency rate.
         /// </summary>
         /// <value>The currency rate.</value>
-        public decimal currencyRate { get; set; }
+        public decimal? currencyRate { get; set; }
         [DataMember]
         /// <summary>
         /// Gets the interval.
@@ -109,6 +109,21 @@ namespace Cognitivo.API.Models
         /// </summary>
         /// <value>The details.</value>
         public List<SalesDetail> details { get; set; }
+
+        [DataMember]
+        /// <summary>
+        /// Gets or sets the customer.
+        /// </summary>
+        /// <value>The details.</value>
+        public Customer relationship { get; set; }
+
+        [DataMember]
+        /// <summary>
+        /// Gets or sets the Contract.
+        /// </summary>
+        /// <value>The details.</value>
+        public PaymentContract paymentContract { get; set; }
+
         [DataMember]
         /// <summary>
         /// Gets or sets a value indicating whether this <see cref="T:Core.Models.Order"/> is archived.
