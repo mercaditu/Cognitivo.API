@@ -64,15 +64,15 @@ namespace Cognitivo.API
             /// <summary>
             /// The stockable.
             /// </summary>
-            Stockable,
+            Stockable=1,
             /// <summary>
             /// The service.
             /// </summary>
-            Service,
+            Service=2,
             /// <summary>
             /// The made to order.
             /// </summary>
-            MadeToOrder
+            MadeToOrder=3
         }
 
         /// <summary>

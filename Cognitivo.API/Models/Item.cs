@@ -156,11 +156,11 @@ namespace Cognitivo.API.Models
         [DataMember]
         public bool isStockable { get; set; }
 
-        [DataMember]
-        /// <summary>
-        /// Gets or sets the last updated on.
-        /// </summary>
-        /// <value>The last updated on.</value>
-        public DateTime updatedAt { get; set; }
+        //[DataMember]
+        ///// <summary>
+        ///// Gets or sets the last updated on.
+        ///// </summary>
+        ///// <value>The last updated on.</value>
+        //public DateTime updatedAt { get; set; }
     }
 }
