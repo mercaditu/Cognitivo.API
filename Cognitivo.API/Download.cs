@@ -138,19 +138,21 @@ namespace Cognitivo.API
         }
         public List<Models.ItemCategory> ItemCategory(string CompanySlug, Enums.TimeSpan Timespan)
         {
+            string result = "";
             if (CompanySlug == "") { throw new Exception("Company Slug is blank. Please assign before performing sync."); }
-            List<Models.ItemCategory> ItemCategorys = new List<Models.ItemCategory>();
+            Models.ItemCategoryData ItemCategorys = new Models.ItemCategoryData();
             HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/itemcategory");
             if (httpResponse.StatusCode == HttpStatusCode.OK)
             {
 
                 using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
                 {
-                    var result = streamReader.ReadToEnd();
-                    ItemCategorys = JsonConvert.DeserializeObject(result) as List<Models.ItemCategory>;
+                    result = streamReader.ReadToEnd();
+                    
                 }
+                ItemCategorys = JsonConvert.DeserializeObject<Models.ItemCategoryData>(result);
             }
-            return ItemCategorys;
+            return ItemCategorys.data;
             //return new List<Models.Sales>();
         }
 
@@ -241,19 +243,40 @@ namespace Cognitivo.API
         }
         public List<Models.Range> Range(string CompanySlug, Enums.TimeSpan Timespan)
         {
+            string result = "";
             if (CompanySlug == "") { throw new Exception("Company Slug is blank. Please assign before performing sync."); }
-            List<Models.Range> ranges = new List<Models.Range>();
-            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/range");
+            Models.RangeData ranges = new Models.RangeData();
+            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/range/1");
             if (httpResponse.StatusCode == HttpStatusCode.OK)
             {
 
                 using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
                 {
-                    var result = streamReader.ReadToEnd();
-                    ranges = JsonConvert.DeserializeObject(result) as List<Models.Range>;
+                   result = streamReader.ReadToEnd();
+                    
                 }
+                ranges = JsonConvert.DeserializeObject<Models.RangeData>(result);
             }
-            return ranges;
+            return ranges.data;
+            //return new List<Models.Sales>();
+        }
+        public List<Models.Inventory> Inventory(string CompanySlug, Enums.TimeSpan Timespan)
+        {
+            string result = "";
+            if (CompanySlug == "") { throw new Exception("Company Slug is blank. Please assign before performing sync."); }
+            Models.InventoryData inventorys = new Models.InventoryData();
+            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/inventory/1");
+            if (httpResponse.StatusCode == HttpStatusCode.OK)
+            {
+
+                using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
+                {
+                    result = streamReader.ReadToEnd();
+
+                }
+                inventorys = JsonConvert.DeserializeObject<Models.InventoryData>(result);
+            }
+            return inventorys.data;
             //return new List<Models.Sales>();
         }
         public List<Models.Supplier> Supplier(string CompanySlug, Enums.TimeSpan Timespan)
@@ -295,7 +318,7 @@ namespace Cognitivo.API
             string result = "";
             if (CompanySlug == "") { throw new Exception("Company Slug is blank. Please assign before performing sync."); }
             Models.VatData vats = new Models.VatData();
-            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/vat/1");
+            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/saletax/1");
             if (httpResponse.StatusCode == HttpStatusCode.OK)
             {
 

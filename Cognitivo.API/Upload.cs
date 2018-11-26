@@ -172,11 +172,48 @@ namespace Cognitivo.API
         //    Data = Http.SyncList(CompanySlug + "/upload/PointOfSales", Data);
         //    return Data;
         //}
-        //public List<object> Ranges(string CompanySlug, List<object> Data)
-        //{
-        //    Data = Http.SyncList(CompanySlug + "/upload/Ranges", Data);
-        //    return Data;
-        //}
+        public List<Range> Ranges(string CompanySlug, List<object> Data)
+        {
+            string result = "";
+            HttpWebResponse response = Http.SyncList(CompanySlug + "/upload/Ranges", Data); ;
+
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                HttpListenerException ex = new HttpListenerException();
+                throw ex;
+            }
+            using (var streamReader = new StreamReader(response.GetResponseStream()))
+            {
+                result = streamReader.ReadToEnd();
+            }
+
+            Models.RangeData MyList = new RangeData();
+            MyList = JsonConvert.DeserializeObject<Models.RangeData>(result);
+
+            return MyList.data;
+          
+        }
+        public List<Range> Inventory(string CompanySlug, List<object> Data)
+        {
+            string result = "";
+            HttpWebResponse response = Http.SyncList(CompanySlug + "/upload/Ranges", Data); ;
+
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                HttpListenerException ex = new HttpListenerException();
+                throw ex;
+            }
+            using (var streamReader = new StreamReader(response.GetResponseStream()))
+            {
+                result = streamReader.ReadToEnd();
+            }
+
+            Models.RangeData MyList = new RangeData();
+            MyList = JsonConvert.DeserializeObject<Models.RangeData>(result);
+
+            return MyList.data;
+
+        }
         //public List<object> Suppliers(string CompanySlug, List<object> Data)
         //{
         //    Data = Http.SyncList(CompanySlug + "/upload/Suppliers", Data);
