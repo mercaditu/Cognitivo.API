@@ -16,7 +16,7 @@ namespace Cognitivo.API.Models
         /// </summary>
         /// <value>The identifier.</value>
         [DataMember]
-        public int localId { get; set; }
+        public int? localId { get; set; }
 
         /// <summary>
         /// Gets or sets the cloud identifier.
@@ -80,7 +80,7 @@ namespace Cognitivo.API.Models
         /// Gets or sets the type.
         /// </summary>
         /// <value>The status.</value>
-        public Enums.Action action { get; set; }
+        public Enums.Action? action { get; set; }
         
 
         [DataMember]

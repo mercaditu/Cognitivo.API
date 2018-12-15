@@ -20,7 +20,7 @@ namespace Cognitivo.API.Models
         /// Gets or sets the local identifier.
         /// </summary>
         /// <value>The local identifier.</value>
-        public int localId { get; set; }
+        public int? localId { get; set; }
 
         [DataMember]
         /// <summary>

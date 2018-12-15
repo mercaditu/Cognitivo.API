@@ -53,12 +53,12 @@ namespace Cognitivo.API
         /// <returns>The sales.</returns>
         /// <param name="CompanySlug">Company slug.</param>
         /// <param name="Timespan">Timespan.</param>
-        public List<Models.Item> Item(string CompanySlug, Enums.TimeSpan Timespan)
+        public List<Models.Item> Item(string CompanySlug,Enums.TimeSpan Timespan)
         {
             string result = "";
             if (CompanySlug == "") { throw new Exception("Company Slug is blank. Please assign before performing sync."); }
             Models.ItemData items = new Models.ItemData();
-            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/item/1");
+                 HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/item");
             if (httpResponse.StatusCode == HttpStatusCode.OK)
             {
 
@@ -83,7 +83,8 @@ namespace Cognitivo.API
             string result = "";
             if (CompanySlug == "") { throw new Exception("Company Slug is blank. Please assign before performing sync."); }
             Models.AccountData accounts = new Models.AccountData();
-            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/account/1");
+            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/account");
+           
             if (httpResponse.StatusCode == HttpStatusCode.OK)
             {
 
@@ -122,7 +123,7 @@ namespace Cognitivo.API
             string result = "";
             if (CompanySlug == "") { throw new Exception("Company Slug is blank. Please assign before performing sync."); }
             Models.CustomerData customers = new Models.CustomerData();
-            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/customer/1");
+            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/customer");
             if (httpResponse.StatusCode == HttpStatusCode.OK)
             {
 
@@ -246,7 +247,7 @@ namespace Cognitivo.API
             string result = "";
             if (CompanySlug == "") { throw new Exception("Company Slug is blank. Please assign before performing sync."); }
             Models.RangeData ranges = new Models.RangeData();
-            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/range/1");
+            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/range");
             if (httpResponse.StatusCode == HttpStatusCode.OK)
             {
 
@@ -265,7 +266,7 @@ namespace Cognitivo.API
             string result = "";
             if (CompanySlug == "") { throw new Exception("Company Slug is blank. Please assign before performing sync."); }
             Models.InventoryData inventorys = new Models.InventoryData();
-            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/inventory/1");
+            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/inventory");
             if (httpResponse.StatusCode == HttpStatusCode.OK)
             {
 
@@ -318,7 +319,7 @@ namespace Cognitivo.API
             string result = "";
             if (CompanySlug == "") { throw new Exception("Company Slug is blank. Please assign before performing sync."); }
             Models.VatData vats = new Models.VatData();
-            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/saletax/1");
+            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/saletax");
             if (httpResponse.StatusCode == HttpStatusCode.OK)
             {
 
