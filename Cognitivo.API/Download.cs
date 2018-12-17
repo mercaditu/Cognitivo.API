@@ -25,7 +25,7 @@ namespace Cognitivo.API
             }
             else if (SyncWith == Enums.SyncWith.Playground)
             {
-                Http.Url = "https://www.test.cognitivo.in/api/";
+                Http.Url = "http://phplaravel-181496-694025.cloudwaysapps.com/api/";
             }
             else
             {
@@ -58,7 +58,7 @@ namespace Cognitivo.API
             string result = "";
             if (CompanySlug == "") { throw new Exception("Company Slug is blank. Please assign before performing sync."); }
             Models.ItemData items = new Models.ItemData();
-                 HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/item");
+                 HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/item/1");
             if (httpResponse.StatusCode == HttpStatusCode.OK)
             {
 
@@ -83,7 +83,7 @@ namespace Cognitivo.API
             string result = "";
             if (CompanySlug == "") { throw new Exception("Company Slug is blank. Please assign before performing sync."); }
             Models.AccountData accounts = new Models.AccountData();
-            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/account");
+            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/account/1");
            
             if (httpResponse.StatusCode == HttpStatusCode.OK)
             {
@@ -123,7 +123,7 @@ namespace Cognitivo.API
             string result = "";
             if (CompanySlug == "") { throw new Exception("Company Slug is blank. Please assign before performing sync."); }
             Models.CustomerData customers = new Models.CustomerData();
-            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/customer");
+            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/customer/1");
             if (httpResponse.StatusCode == HttpStatusCode.OK)
             {
 
@@ -142,7 +142,7 @@ namespace Cognitivo.API
             string result = "";
             if (CompanySlug == "") { throw new Exception("Company Slug is blank. Please assign before performing sync."); }
             Models.ItemCategoryData ItemCategorys = new Models.ItemCategoryData();
-            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/itemcategory");
+            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/itemcategory/1");
             if (httpResponse.StatusCode == HttpStatusCode.OK)
             {
 
@@ -159,19 +159,21 @@ namespace Cognitivo.API
 
         public List<Models.Location> Location(string CompanySlug, Enums.TimeSpan Timespan)
         {
+            string result = "";
             if (CompanySlug == "") { throw new Exception("Company Slug is blank. Please assign before performing sync."); }
-            List<Models.Location> Locations = new List<Models.Location>();
-            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/location");
+            Models.LocationData Locations = new Models.LocationData();
+            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/location/1");
             if (httpResponse.StatusCode == HttpStatusCode.OK)
             {
 
                 using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
                 {
-                    var result = streamReader.ReadToEnd();
-                    Locations = JsonConvert.DeserializeObject(result) as List<Models.Location>;
+                    result = streamReader.ReadToEnd();
+                    
                 }
+                Locations = JsonConvert.DeserializeObject<Models.LocationData>(result);
             }
-            return Locations;
+            return Locations.data;
             //return new List<Models.Sales>();
         }
         public List<Models.PaymentContract> PaymentContract(string CompanySlug, Enums.TimeSpan Timespan)
@@ -319,7 +321,7 @@ namespace Cognitivo.API
             string result = "";
             if (CompanySlug == "") { throw new Exception("Company Slug is blank. Please assign before performing sync."); }
             Models.VatData vats = new Models.VatData();
-            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/saletax");
+            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/saletax/1");
             if (httpResponse.StatusCode == HttpStatusCode.OK)
             {
 

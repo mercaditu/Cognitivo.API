@@ -20,5 +20,7 @@ namespace Cognitivo.API.Models
         public int cloudId { get; set; }
 
         public string name { get; set; }
+
+        public bool group { get; set; }
     }
 }
