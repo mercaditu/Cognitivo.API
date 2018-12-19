@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Runtime.Serialization;
+
 namespace Cognitivo.API.Models
 {
     public class Customer
@@ -13,7 +15,7 @@ namespace Cognitivo.API.Models
         /// Gets or sets the cloud identifier.
         /// </summary>
         /// <value>The cloud identifier.</value>
-        public int cloudId { get; set; }
+        public int? cloudId { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -25,7 +27,7 @@ namespace Cognitivo.API.Models
         /// Gets or sets the taxid.
         /// </summary>
         /// <value>The taxid.</value>
-        public string taxid { get; set; }
+        public string taxId { get; set; }
 
         /// <summary>
         /// Gets or sets the address.
@@ -62,6 +64,16 @@ namespace Cognitivo.API.Models
         /// </summary>
         /// <value><c>true</c> if is default; otherwise, <c>false</c>.</value>
         public bool isDefault { get; set; }
+
+      
+
+
+        [DataMember]
+        public DateTime updatedAt { get; set; }
+        [DataMember]
+        public DateTime createdAt { get; set; }
+        [DataMember]
+        public DateTime? deletedAt { get; set; }
 
         /// <summary>
         /// Gets or sets the last updated on.

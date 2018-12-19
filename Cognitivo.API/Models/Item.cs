@@ -156,18 +156,6 @@ namespace Cognitivo.API.Models
         [DataMember]
         public bool isStockable { get; set; }
 
-        [DataMember]
-        public string updatedCloud { get; set; }
-
-        [DataMember]
-        public string updatedLocal { get; set; }
-
-        [DataMember]
-        public string createdCloud { get; set; }
-
-        [DataMember]
-        public string deletedCloud { get; set; }
-
 
         [DataMember]
         public DateTime updatedAt { get; set; }
