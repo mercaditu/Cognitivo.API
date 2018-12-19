@@ -23,7 +23,7 @@ namespace Cognitivo.API.Models
         /// </summary>
         /// <value>The cloud identifier.</value>
         [DataMember]
-        public int cloudId { get; set; }
+        public int? cloudId { get; set; }
 
         /// <summary>
         /// Gets or sets the global item cloud identifier.
@@ -88,7 +88,7 @@ namespace Cognitivo.API.Models
         /// Gets or sets the category.
         /// </summary>
         /// <value>The category.</value>
-        public int categoryCloudId { get; set; }
+        public int? categoryCloudId { get; set; }
 
         [DataMember]
         /// <summary>
@@ -156,11 +156,26 @@ namespace Cognitivo.API.Models
         [DataMember]
         public bool isStockable { get; set; }
 
-       // [DataMember]
-        /// <summary>
-        /// Gets or sets the last updated on.
-        /// </summary>
-        /// <value>The last updated on.</value>
-       // public DateTime updatedAt { get; set; }
+        [DataMember]
+        public string updatedCloud { get; set; }
+
+        [DataMember]
+        public string updatedLocal { get; set; }
+
+        [DataMember]
+        public string createdCloud { get; set; }
+
+        [DataMember]
+        public string deletedCloud { get; set; }
+
+
+        [DataMember]
+        public DateTime updatedAt { get; set; }
+        [DataMember]
+        public DateTime createdAt { get; set; }
+        [DataMember]
+        public DateTime? deletedAt { get; set; }
+
+
     }
 }

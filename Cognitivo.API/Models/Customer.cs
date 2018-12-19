@@ -19,7 +19,7 @@ namespace Cognitivo.API.Models
         /// Gets or sets the name.
         /// </summary>
         /// <value>The name.</value>
-        public string name { get; set; }
+        public string alias { get; set; }
 
         /// <summary>
         /// Gets or sets the taxid.
