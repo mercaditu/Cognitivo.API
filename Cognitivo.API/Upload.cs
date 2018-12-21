@@ -125,53 +125,77 @@ namespace Cognitivo.API
             return MyList.data;
         }
 
+        public List<Account> Account(string CompanySlug, List<object> Data)
+        {
+            string result = "";
+            HttpWebResponse response = Http.SyncList(CompanySlug + "/upload/account", Data);
+
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                HttpListenerException ex = new HttpListenerException();
+                throw ex;
+            }
+            using (var streamReader = new StreamReader(response.GetResponseStream()))
+            {
+                result = streamReader.ReadToEnd();
+            }
+
+            Models.AccountData MyList = new AccountData();
+            MyList = JsonConvert.DeserializeObject<Models.AccountData>(result);
+
+            return MyList.data;
+        }
+
+
         //public List<object> ItemCategories(string CompanySlug, List<object> Data)
         //{
         //    Data = Http.SyncList(CompanySlug + "/upload/contact", Data);
         //    return Data;
         //}
-        //public List<object> Locations(string CompanySlug, List<object> Data)
-        //{
-        //    Data = Http.SyncList(CompanySlug + "/upload/Locations", Data);
-        //    return Data;
-        //}
-        //public List<Models.PaymentContract> PaymentContracts(string CompanySlug, List<object> Data)
-        //{
-        //    string result = "";
-        //    HttpWebResponse response = Http.SyncList(CompanySlug + "/upload/contract", Data);
+        public List<Location> Locations(string CompanySlug, List<object> Data)
+        {
+            string result = "";
+            HttpWebResponse response = Http.SyncList(CompanySlug + "/upload/locations", Data);
 
-        //    if (response.StatusCode != HttpStatusCode.OK)
-        //    {
-        //        HttpListenerException ex = new HttpListenerException();
-        //        throw ex;
-        //    }
-        //    using (var streamReader = new StreamReader(response.GetResponseStream()))
-        //    {
-        //        result = streamReader.ReadToEnd();
-        //    }
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                HttpListenerException ex = new HttpListenerException();
+                throw ex;
+            }
+            using (var streamReader = new StreamReader(response.GetResponseStream()))
+            {
+                result = streamReader.ReadToEnd();
+            }
 
-        //    Models.PaymentContractData MyList = new PaymentContractData();
-        //    MyList = JsonConvert.DeserializeObject<Models.PaymentContractData>(result);
+            Models.LocationData MyList = new LocationData();
+            MyList = JsonConvert.DeserializeObject<Models.LocationData>(result);
 
-        //    return MyList.data;
+            return MyList.data;
+        }
+
+        public List<Models.PaymentContract> PaymentContracts(string CompanySlug, List<object> Data)
+        {
+            string result = "";
+            HttpWebResponse response = Http.SyncList(CompanySlug + "/upload/contract", Data);
+
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                HttpListenerException ex = new HttpListenerException();
+                throw ex;
+            }
+            using (var streamReader = new StreamReader(response.GetResponseStream()))
+            {
+                result = streamReader.ReadToEnd();
+            }
+
+            Models.PaymentContractData MyList = new PaymentContractData();
+            MyList = JsonConvert.DeserializeObject<Models.PaymentContractData>(result);
+
+            return MyList.data;
 
 
-        //}
-        //public List<object> PaymentContractDetails(string CompanySlug, List<object> Data)
-        //{
-        //    Data = Http.SyncList(CompanySlug + "/upload/PaymentContractDetails", Data);
-        //    return Data;
-        //}
-        //public List<object> PaymentTypes(string CompanySlug, List<object> Data)
-        //{
-        //    Data = Http.SyncList(CompanySlug + "/upload/PaymentTypes", Data);
-        //    return Data;
-        //}
-        //public List<object> PointOfSales(string CompanySlug, List<object> Data)
-        //{
-        //    Data = Http.SyncList(CompanySlug + "/upload/PointOfSales", Data);
-        //    return Data;
-        //}
+        }
+       
         public List<Range> Ranges(string CompanySlug, List<object> Data)
         {
             string result = "";

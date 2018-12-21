@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace Cognitivo.API.Models
 {
@@ -38,7 +39,12 @@ namespace Cognitivo.API.Models
         /// Gets or sets the last updated on.
         /// </summary>
         /// <value>The last updated on.</value>
+        [DataMember]
         public DateTime updatedAt { get; set; }
+        [DataMember]
+        public DateTime createdAt { get; set; }
+        [DataMember]
+        public DateTime? deletedAt { get; set; }
 
         public Enums.Action action { get; set; }
     }
