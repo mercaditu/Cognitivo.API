@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Runtime.Serialization;
+
 namespace Cognitivo.API.Models
 {
     public class VatDetail
@@ -33,10 +35,11 @@ namespace Cognitivo.API.Models
         /// <value>The percentage.</value>
         public decimal percentage { get; set; }
 
-        /// <summary>
-        /// Gets or sets the last updated on.
-        /// </summary>
-        /// <value>The last updated on.</value>
-       // public DateTime updatedAt { get; set; }
+        [DataMember]
+        public DateTime updatedAt { get; set; }
+        [DataMember]
+        public DateTime createdAt { get; set; }
+        [DataMember]
+        public DateTime? deletedAt { get; set; }
     }
 }
