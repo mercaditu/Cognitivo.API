@@ -264,7 +264,7 @@ namespace Cognitivo.API
             }
 
             Models.VatData MyList = new VatData();
-            MyList = JsonConvert.DeserializeObject<Models.VatData>(result);
+             MyList = JsonConvert.DeserializeObject<Models.VatData>(result);
 
             return MyList.data;
 
