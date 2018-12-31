@@ -49,6 +49,7 @@ namespace Cognitivo.API.Models
         /// </summary>
         /// <value>The item description.</value>
         public string name { get; set; }
+
         /// <summary>
         /// Gets or sets the item sku.
         /// </summary>

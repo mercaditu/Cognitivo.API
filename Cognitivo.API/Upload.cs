@@ -103,6 +103,30 @@ namespace Cognitivo.API
 
 
         }
+        public List<PaymentType> PaymentType(string CompanySlug, List<object> Data)
+        {
+            string result = "";
+            HttpWebResponse response = Http.SyncList(CompanySlug + "/upload/paymentType", Data);
+
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                HttpListenerException ex = new HttpListenerException();
+                throw ex;
+            }
+
+            using (var streamReader = new StreamReader(response.GetResponseStream()))
+            {
+                result = streamReader.ReadToEnd();
+            }
+
+            Models.PaymentTypeData MyList = new PaymentTypeData();
+            MyList = JsonConvert.DeserializeObject<Models.PaymentTypeData>(result);
+
+            return MyList.data;
+
+
+
+        }
 
         public List<Customer> Customer(string CompanySlug, List<object> Data)
         {

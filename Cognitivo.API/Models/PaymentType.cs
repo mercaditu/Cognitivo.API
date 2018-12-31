@@ -38,7 +38,7 @@ namespace Cognitivo.API.Models
         /// Gets or sets the cloud identifier.
         /// </summary>
         /// <value>The cloud identifier.</value>
-        public int cloudId { get; set; }
+        public int? cloudId { get; set; }
 
         /// <summary>
         /// Gets or sets the behaviour.
@@ -50,7 +50,7 @@ namespace Cognitivo.API.Models
         /// Gets or sets the name.
         /// </summary>
         /// <value>The name.</value>
-        public string Name { get; set; }
+        public string name { get; set; }
 
         /// <summary>
         /// Gets or sets the icon.
@@ -62,7 +62,15 @@ namespace Cognitivo.API.Models
         /// Gets or sets the last updated on.
         /// </summary>
         /// <value>The last updated on.</value>
+        /// <value>The last updated on.</value>
+        [DataMember]
         public DateTime updatedAt { get; set; }
+        [DataMember]
+        public DateTime createdAt { get; set; }
+        [DataMember]
+        public DateTime? deletedAt { get; set; }
+
+      
 
         [DataMember]
         /// <summary>
