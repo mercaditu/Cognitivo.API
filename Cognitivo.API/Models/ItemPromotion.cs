@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Serialization;
 
 namespace Cognitivo.API.Models
 {
@@ -65,13 +66,13 @@ namespace Cognitivo.API.Models
         /// Gets or sets the local identifier.
         /// </summary>
         /// <value>The local identifier.</value>
-        public int localId { get; set; }
+        public int? localId { get; set; }
 
         /// <summary>
         /// Gets or sets the cloud identifier.
         /// </summary>
         /// <value>The cloud identifier.</value>
-        public int cloudId { get; set; }
+        public int? cloudId { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
@@ -129,10 +130,19 @@ namespace Cognitivo.API.Models
         /// <value>The output value.</value>
         public decimal outputValue { get; set; }
 
+        [DataMember]
+        public DateTime updatedAt { get; set; }
+        [DataMember]
+        public DateTime createdAt { get; set; }
+        [DataMember]
+        public DateTime? deletedAt { get; set; }
+
         /// <summary>
         /// Gets or sets the last updated on.
         /// </summary>
         /// <value>The last updated on.</value>
-        public DateTime updatedAt { get; set; }
+      //  public DateTime updatedAt { get; set; }
+
+        public Enums.Action action { get; set; }
     }
 }

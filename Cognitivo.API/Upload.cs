@@ -103,6 +103,30 @@ namespace Cognitivo.API
 
 
         }
+        public List<PointOfSale> Terminal(string CompanySlug, List<object> Data)
+        {
+            string result = "";
+            HttpWebResponse response = Http.SyncList(CompanySlug + "/upload/terminal", Data);
+
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                HttpListenerException ex = new HttpListenerException();
+                throw ex;
+            }
+
+            using (var streamReader = new StreamReader(response.GetResponseStream()))
+            {
+                result = streamReader.ReadToEnd();
+            }
+
+            Models.PointOfSaleData MyList = new PointOfSaleData();
+            MyList = JsonConvert.DeserializeObject<Models.PointOfSaleData>(result);
+
+            return MyList.data;
+
+
+
+        }
         public List<PaymentType> PaymentType(string CompanySlug, List<object> Data)
         {
             string result = "";
@@ -179,7 +203,7 @@ namespace Cognitivo.API
         public List<Location> Locations(string CompanySlug, List<object> Data)
         {
             string result = "";
-            HttpWebResponse response = Http.SyncList(CompanySlug + "/upload/locations", Data);
+            HttpWebResponse response = Http.SyncList(CompanySlug + "/upload/location", Data);
 
             if (response.StatusCode != HttpStatusCode.OK)
             {
@@ -193,6 +217,27 @@ namespace Cognitivo.API
 
             Models.LocationData MyList = new LocationData();
             MyList = JsonConvert.DeserializeObject<Models.LocationData>(result);
+
+            return MyList.data;
+        }
+
+        public List<ItemPromotion> Promotions(string CompanySlug, List<object> Data)
+        {
+            string result = "";
+            HttpWebResponse response = Http.SyncList(CompanySlug + "/upload/promotion", Data);
+
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                HttpListenerException ex = new HttpListenerException();
+                throw ex;
+            }
+            using (var streamReader = new StreamReader(response.GetResponseStream()))
+            {
+                result = streamReader.ReadToEnd();
+            }
+
+            Models.ItemPromotionData MyList = new ItemPromotionData();
+            MyList = JsonConvert.DeserializeObject<Models.ItemPromotionData>(result);
 
             return MyList.data;
         }

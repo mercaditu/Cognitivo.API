@@ -70,7 +70,11 @@ namespace Cognitivo.API.Models
         [DataMember]
         public DateTime? deletedAt { get; set; }
 
-      
+        /// <summary>
+        /// Gets or sets the reference.
+        /// </summary>
+        /// <value>The reference.</value>
+        public string country { get; set; }
 
         [DataMember]
         /// <summary>

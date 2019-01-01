@@ -71,6 +71,8 @@ namespace Cognitivo.API.Models
         /// <value>The reference.</value>
         public string reference { get; set; }
 
+    
+
         /// <summary>
         /// Gets or sets the last updated on.
         /// </summary>
