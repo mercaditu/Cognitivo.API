@@ -17,18 +17,41 @@ namespace Cognitivo.API.Models
             /// Rule applies to all Products and Locations
             /// </summary>
             General,
+
             /// <summary>
             /// Rule applies to specific Category
             /// </summary>
             OnCategory,
+
             /// <summary>
             /// Rule applies to specific Product
             /// </summary>
             OnProduct,
+
             /// <summary>
-            /// Rule applies to specific Location, such as a Shop.
+            /// The on tag.
             /// </summary>
-            OnLocation
+            OnTag,
+
+            /// <summary>
+            /// The on customer.
+            /// </summary>
+            OnCustomer,
+
+            /// <summary>
+            /// The on membership.
+            /// </summary>
+            OnMembershipTier,
+
+            /// <summary>
+            /// The type of the on payment.
+            /// </summary>
+            OnPaymentType,
+
+            /// <summary>
+            /// The on payment condition.
+            /// </summary>
+            OnPaymentCondition
         }
 
         /// <summary>
@@ -36,11 +59,6 @@ namespace Cognitivo.API.Models
         /// </summary>
         public enum OutputTypes
         {
-            /// <summary>
-            /// The fixed margin.
-            /// </summary>
-            FixedMargin,
-
             /// <summary>
             /// Automatic set percentage on an input.
             /// </summary>
