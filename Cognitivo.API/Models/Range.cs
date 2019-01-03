@@ -15,14 +15,9 @@ namespace Cognitivo.API.Models
         /// Gets or sets the cloud identifier.
         /// </summary>
         /// <value>The cloud identifier.</value>
-        public int cloudId { get; set; }
+        public int? cloudId { get; set; }
 
-        /// <summary>
-        /// Gets or sets the starting value.
-        /// </summary>
-        /// <value>The starting value.</value>
-        public int startingValue { get; set; }
-
+      
         /// <summary>
         /// Gets or sets the current value.
         /// </summary>
@@ -33,21 +28,9 @@ namespace Cognitivo.API.Models
         /// Gets or sets the ending value.
         /// </summary>
         /// <value>The ending value.</value>
-        public int endingValue { get; set; }
+        public int endValue { get; set; }
 
-        /// <summary>
-        /// Gets or sets the template.
-        /// </summary>
-        /// <value>The template.</value>
-        public string template { get; set; }
-
-        /// <summary>
-        /// Gets or sets the mask.
-        /// </summary>
-        /// <value>The mask.</value>
-        public string mask { get; set; }
-
-        /// <summary>
+          /// <summary>
         /// Gets or sets the code. Certain countries or companies may require each range to be signed by an identifier code.
         /// </summary>
         /// <value>The code.</value>
@@ -60,10 +43,18 @@ namespace Cognitivo.API.Models
         public DateTime? expiryDate { get; set; }
 
         /// <summary>
+        /// Gets or sets the expiry date. Null value equals to no expiration date.
+        /// </summary>
+        /// <value>The expiry date.</value>
+        public DateTime? startDate { get; set; }
+
+        /// <summary>
         /// Gets or sets the last updated on.
         /// </summary>
         /// <value>The last updated on.</value>
         public DateTime updatedAt { get; set; }
+
+        public Document document { get; set; }
 
 
         [DataMember]
