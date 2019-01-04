@@ -18,13 +18,13 @@ namespace Cognitivo.API.Models
         /// Gets or sets the cloud identifier.
         /// </summary>
         /// <value>The cloud identifier.</value>
-        public int cloudId { get; set; }
+        public int? cloudId { get; set; }
 
         /// <summary>
         /// Gets or sets the order.
         /// </summary>
         /// <value>The order.</value>
-        public int salesCloudId { get; set; }
+        public int? salesCloudId { get; set; }
 
         /// <summary>
         /// Gets or sets the vat.
@@ -36,7 +36,7 @@ namespace Cognitivo.API.Models
         /// Gets or sets the item.
         /// </summary>
         /// <value>The item.</value>
-        public int itemCloudId { get; set; }
+        public int? itemCloudId { get; set; }
 
         /// <summary>
         /// Gets or sets the item.

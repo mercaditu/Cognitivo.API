@@ -265,10 +265,10 @@ namespace Cognitivo.API
 
         }
        
-        public List<Range> Ranges(string CompanySlug, List<object> Data)
+        public List<Document> Ranges(string CompanySlug, List<object> Data)
         {
             string result = "";
-            HttpWebResponse response = Http.SyncList(CompanySlug + "/upload/Ranges", Data); ;
+            HttpWebResponse response = Http.SyncList(CompanySlug + "/upload/document", Data); ;
 
             if (response.StatusCode != HttpStatusCode.OK)
             {
@@ -280,8 +280,8 @@ namespace Cognitivo.API
                 result = streamReader.ReadToEnd();
             }
 
-            Models.RangeData MyList = new RangeData();
-            MyList = JsonConvert.DeserializeObject<Models.RangeData>(result);
+            Models.DocumentData MyList = new DocumentData();
+            MyList = JsonConvert.DeserializeObject<Models.DocumentData>(result);
 
             return MyList.data;
           
