@@ -96,7 +96,7 @@ namespace Cognitivo.API.Models
         /// Gets or sets the currency rate.
         /// </summary>
         /// <value>The currency rate.</value>
-        public decimal? currencyRate { get; set; }
+        public decimal? rate { get; set; }
         [DataMember]
         /// <summary>
         /// Gets the interval.

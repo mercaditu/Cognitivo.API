@@ -80,5 +80,7 @@ namespace Cognitivo.API.Models
         /// <value>The last updated on.</value>
         public DateTime updatedAt { get; set; }
 
+        public Item item { get; set; }
+
     }
 }
