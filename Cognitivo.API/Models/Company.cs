@@ -39,7 +39,7 @@ namespace Cognitivo.API.Models
         /// Gets or sets the taxid.
         /// </summary>
         /// <value>The taxid.</value>
-        public string taxid { get; set; }
+        public string taxId { get; set; }
 
         /// <summary>
         /// Gets or sets the address.
@@ -65,17 +65,14 @@ namespace Cognitivo.API.Models
         /// <value>The currency.</value>
         public string currencyCode { get; set; }
 
-        /// <summary>
-        /// Gets or sets the last updated on.
-        /// </summary>
-        /// <value>The last updated on.</value>
-        public DateTime updatedAt { get; set; }
+      
+
 
         [DataMember]
-        /// <summary>
-        /// Gets or sets the type.
-        /// </summary>
-        /// <value>The status.</value>
-        public Enums.Action action { get; set; }
+        public DateTime updatedAt { get; set; }
+        [DataMember]
+        public DateTime createdAt { get; set; }
+        [DataMember]
+        public DateTime? deletedAt { get; set; }
     }
 }

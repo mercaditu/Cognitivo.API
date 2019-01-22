@@ -102,19 +102,19 @@ namespace Cognitivo.API
         public List<Models.Company> Company(string CompanySlug, Enums.TimeSpan Timespan)
         {
             if (CompanySlug == "") { throw new Exception("Company Slug is blank. Please assign before performing sync."); }
-            List<Models.Company> companys = new List<Models.Company>();
-            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/account");
+            Models.CompanyData companys = new Models.CompanyData();
+            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/company");
             if (httpResponse.StatusCode == HttpStatusCode.OK)
             {
 
                 using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
                 {
                     var result = streamReader.ReadToEnd();
-                    companys = JsonConvert.DeserializeObject(result) as List<Models.Company>;
+                    companys = JsonConvert.DeserializeObject<Models.CompanyData>(result); 
                 }
 
             }
-            return companys;
+            return companys.data;
             //return new List<Models.Sales>();
         }
 
