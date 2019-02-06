@@ -25,26 +25,26 @@ namespace Cognitivo.API
         /// <summary>
         /// Status.
         /// </summary>
-        public enum Status 
+        public enum Status
         {
             /// <summary>
             /// The pending.
             /// </summary>
-            Pending,
+            Pending = 1,
             /// <summary>
             /// The approved.
             /// </summary>
-            Approved,
+            Approved = 2,
             /// <summary>
             /// The annulled.
             /// </summary>
-            Annulled
+            Annulled = 3 
         }
 
         /// <summary>
         /// Time span.
         /// </summary>
-        public enum TimeSpan 
+        public enum TimeSpan
         {
             /// <summary>
             /// The last week.
@@ -64,15 +64,15 @@ namespace Cognitivo.API
             /// <summary>
             /// The stockable.
             /// </summary>
-            Stockable=1,
+            Stockable = 1,
             /// <summary>
             /// The service.
             /// </summary>
-            Service=2,
+            Service = 2,
             /// <summary>
             /// The made to order.
             /// </summary>
-            MadeToOrder=3
+            MadeToOrder = 3
         }
 
         /// <summary>

@@ -36,6 +36,9 @@ namespace Cognitivo.API.Models
         /// <value>The code.</value>
         public string code { get; set; }
 
+
+        public int terminalId { get; set; }
+
         /// <summary>
         /// Gets or sets the expiry date. Null value equals to no expiration date.
         /// </summary>
@@ -47,6 +50,7 @@ namespace Cognitivo.API.Models
         /// </summary>
         /// <value>The expiry date.</value>
         public DateTime? startDate { get; set; }
+
 
         /// <summary>
         /// Gets or sets the last updated on.

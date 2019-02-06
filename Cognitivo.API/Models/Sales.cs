@@ -51,6 +51,12 @@ namespace Cognitivo.API.Models
         public int? locationCloudId { get; set; }
         [DataMember]
         /// <summary>
+        /// Gets or sets the location name.
+        /// </summary>
+        /// <value>The location.</value>
+        public string locationName { get; set; }
+        [DataMember]
+        /// <summary>
         /// Gets or sets the date.
         /// </summary>
         /// <value>The date.</value>
@@ -84,7 +90,7 @@ namespace Cognitivo.API.Models
         /// Gets or sets the code expiry.
         /// </summary>
         /// <value>The code expiry.</value>
-        public DateTime codeExpiry { get; set; }
+        public DateTime? codeExpiry { get; set; }
         [DataMember]
         /// <summary>
         /// Gets or sets the currency.

@@ -69,9 +69,9 @@ namespace Cognitivo.API.Models
 
 
         [DataMember]
-        public DateTime updatedAt { get; set; }
+        public DateTime? updatedAt { get; set; }
         [DataMember]
-        public DateTime createdAt { get; set; }
+        public DateTime? createdAt { get; set; }
         [DataMember]
         public DateTime? deletedAt { get; set; }
 
