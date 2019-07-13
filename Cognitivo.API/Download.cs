@@ -123,7 +123,7 @@ namespace Cognitivo.API
             string result = "";
             if (CompanySlug == "") { throw new Exception("Company Slug is blank. Please assign before performing sync."); }
             Models.CustomerData customers = new Models.CustomerData();
-            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/customer/1");
+            HttpWebResponse httpResponse = Http.Get(CompanySlug + "/download/customer");
             if (httpResponse.StatusCode == HttpStatusCode.OK)
             {
 
