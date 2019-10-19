@@ -23,6 +23,13 @@ namespace Cognitivo.API.Models
         /// <value>The name.</value>
         public string alias { get; set; }
 
+
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        /// <value>The name.</value>
+        public string name { get; set; }
+
         /// <summary>
         /// Gets or sets the taxid.
         /// </summary>
@@ -64,6 +71,8 @@ namespace Cognitivo.API.Models
         /// </summary>
         /// <value><c>true</c> if is default; otherwise, <c>false</c>.</value>
         public bool isDefault { get; set; }
+
+
 
 
 

@@ -25,7 +25,7 @@ namespace Cognitivo.API
             Http.API = API_Key;
             if (SyncWith == Enums.SyncWith.Production)
             {
-                Http.Url = "https://www.cognitivo.com/api/";
+                Http.Url = "http://www.bazaar.social/api/";
             }
             else if (SyncWith == Enums.SyncWith.Playground)
             {
@@ -99,6 +99,28 @@ namespace Cognitivo.API
             MyList = JsonConvert.DeserializeObject<Models.ItemData>(result);
 
             return MyList.data;
+
+
+
+        }
+        public void ItemImage(string CompanySlug, List<object> Data)
+        {
+            string result = "";
+            HttpWebResponse response = Http.SyncList(CompanySlug + "/upload/itemImage", Data);
+
+            if (response.StatusCode != HttpStatusCode.OK)
+            {
+                HttpListenerException ex = new HttpListenerException();
+                throw ex;
+            }
+
+            using (var streamReader = new StreamReader(response.GetResponseStream()))
+            {
+                result = streamReader.ReadToEnd();
+            }
+
+
+         
 
 
 

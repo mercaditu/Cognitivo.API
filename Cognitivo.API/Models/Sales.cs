@@ -121,7 +121,7 @@ namespace Cognitivo.API.Models
         /// Gets or sets the customer.
         /// </summary>
         /// <value>The details.</value>
-        public Customer relationship { get; set; }
+        public Customer customer { get; set; }
 
         [DataMember]
         /// <summary>
@@ -136,7 +136,15 @@ namespace Cognitivo.API.Models
         /// </summary>
         /// <value><c>true</c> if is archived; otherwise, <c>false</c>.</value>
         public bool isArchived { get; set; }
-        
+
+
+        [DataMember]
+        /// <summary>
+        /// Gets or sets a value indicating whether this <see cref="T:Core.Models.Order"/> is archived.
+        /// </summary>
+        /// <value><c>true</c> if is archived; otherwise, <c>false</c>.</value>
+        public bool sentMail { get; set; }
+
 
 
         [DataMember]

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace Cognitivo.API.Models
@@ -9,7 +10,7 @@ namespace Cognitivo.API.Models
     [DataContract]
     public class Item
     {
-        public Item() { isPrivate = false; }
+        public Item() { isPrivate = false; attachments = new List<Attachments>(); tags = new string[50]; }
 
         /// <summary>
         /// Gets or sets the identifier.
@@ -163,7 +164,18 @@ namespace Cognitivo.API.Models
         public DateTime createdAt { get; set; }
         [DataMember]
         public DateTime? deletedAt { get; set; }
-
+        [DataMember]
+        public List<Attachments> attachments { get; set; }
+        [DataMember]
+        public string[] tags { get; set; }
 
     }
+    public class Attachments
+    {
+        [DataMember]
+        public byte[] attachment { get; set; }
+        public long? cloudId { get; set; }
+    }
+
+    
 }

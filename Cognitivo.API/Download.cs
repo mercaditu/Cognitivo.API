@@ -21,7 +21,7 @@ namespace Cognitivo.API
             Http.API = API_Key;
             if (SyncWith == Enums.SyncWith.Production)
             {
-                Http.Url = "https://www.cognitivo.com/api/";
+                Http.Url = "http://bazaar.social/api/";
             }
             else if (SyncWith == Enums.SyncWith.Playground)
             {
