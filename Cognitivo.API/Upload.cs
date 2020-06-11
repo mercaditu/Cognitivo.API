@@ -47,7 +47,7 @@ namespace Cognitivo.API
         public List<Sales> Transaction(string CompanySlug, List<object> Data)
         {
             string result = "";
-            HttpWebResponse response =Http.SyncList(CompanySlug + "/upload/transaction", Data);
+            HttpWebResponse response =Http.SyncList("@" + CompanySlug + "/backoffice/upload/transactions", Data);
 
             if (response.StatusCode != HttpStatusCode.OK)
             {
@@ -82,7 +82,7 @@ namespace Cognitivo.API
         public List<Item> Item(string CompanySlug, List<object> Data)
         {
             string result = "";
-            HttpWebResponse response = Http.SyncList(CompanySlug + "/upload/item", Data);
+            HttpWebResponse response = Http.SyncList("@" + CompanySlug + "/backoffice/upload/items", Data);
 
             if (response.StatusCode != HttpStatusCode.OK)
             {
@@ -225,7 +225,7 @@ namespace Cognitivo.API
         public List<Location> Locations(string CompanySlug, List<object> Data)
         {
             string result = "";
-            HttpWebResponse response = Http.SyncList(CompanySlug + "/upload/location", Data);
+            HttpWebResponse response = Http.SyncList("@" + CompanySlug + "/backoffice/upload/locations", Data);
 
             if (response.StatusCode != HttpStatusCode.OK)
             {
@@ -360,6 +360,70 @@ namespace Cognitivo.API
             return MyList.data;
 
           
+
+        }
+
+        public string  getKey(string username,string passowrd,Enums.SyncWith SyncWith = Enums.SyncWith.Production)
+        {
+                       string webAddr = "";
+
+            if (SyncWith == Enums.SyncWith.Production)
+            {
+                webAddr = "http://www.bazaar.social";
+            }
+            else if (SyncWith == Enums.SyncWith.Playground)
+            {
+                webAddr = "https://www.test.cognitivo.in/";
+            }
+            else
+            {
+                webAddr = "http://localhost:8000/";
+            }
+
+            webAddr = webAddr +  "oauth/token";
+
+
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(webAddr);
+            httpWebRequest.ContentType = "application/json";
+            httpWebRequest.Method = "POST";
+
+            string postData = "";
+
+            postData += "grant_type=password&";
+            postData += "client_id=2&";
+            postData += "client_secret=bu8xcic3XFp6BWKmtrcO8BYpD4JN9aM6DQe3hzOp&";
+            postData += "username=" + username + "&";
+            postData += "password=" + passowrd;
+
+
+            byte[] data = Encoding.ASCII.GetBytes(postData);
+
+            httpWebRequest.ContentType = "application/x-www-form-urlencoded";
+            httpWebRequest.ContentLength = data.Length;
+
+            Stream requestStream = httpWebRequest.GetRequestStream();
+            requestStream.Write(data, 0, data.Length);
+            requestStream.Close();
+
+            HttpWebResponse myHttpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+
+            Stream responseStream = myHttpWebResponse.GetResponseStream();
+
+            StreamReader myStreamReader = new StreamReader(responseStream, Encoding.Default);
+
+            string pageContent = myStreamReader.ReadToEnd();
+
+            myStreamReader.Close();
+            responseStream.Close();
+
+            myHttpWebResponse.Close();
+
+
+            Models.Key MyList = JsonConvert.DeserializeObject<Models.Key>(pageContent);
+
+            return MyList.access_token;
+
+
 
         }
 
