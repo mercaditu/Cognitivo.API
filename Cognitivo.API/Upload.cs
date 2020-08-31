@@ -47,7 +47,7 @@ namespace Cognitivo.API
         public List<Sales> Transaction(string CompanySlug, List<object> Data)
         {
             string result = "";
-            HttpWebResponse response =Http.SyncList("@" + CompanySlug + "/backoffice/upload/transactions", Data);
+            HttpWebResponse response =Http.SyncList("protected/profiles/" + CompanySlug + "/backoffice/upload/transactions", Data);
 
             if (response.StatusCode != HttpStatusCode.OK)
             {
@@ -59,6 +59,12 @@ namespace Cognitivo.API
             {
                 result = streamReader.ReadToEnd();
             }
+
+            //List<Models.Sales> MyList = new List<Models.Sales>();
+            //MyList = JsonConvert.DeserializeObject<List<Models.Sales>>(result);
+
+            //return MyList;
+
             SalesData MyList = JsonConvert.DeserializeObject<SalesData>(result);
             return MyList.data;
 
@@ -82,7 +88,7 @@ namespace Cognitivo.API
         public List<Item> Item(string CompanySlug, List<object> Data)
         {
             string result = "";
-            HttpWebResponse response = Http.SyncList("@" + CompanySlug + "/backoffice/upload/items", Data);
+            HttpWebResponse response = Http.SyncList("protected/profiles/" + CompanySlug + "/backoffice/upload/items", Data);
 
             if (response.StatusCode != HttpStatusCode.OK)
             {
@@ -94,6 +100,11 @@ namespace Cognitivo.API
             {
                 result = streamReader.ReadToEnd();
             }
+
+            //List<Models.Item> MyList = new List<Models.Item>();
+            //MyList = JsonConvert.DeserializeObject<List<Models.Item>>(result);
+
+            //return MyList;
 
             Models.ItemData MyList = new ItemData();
             MyList = JsonConvert.DeserializeObject<Models.ItemData>(result);
@@ -225,7 +236,7 @@ namespace Cognitivo.API
         public List<Location> Locations(string CompanySlug, List<object> Data)
         {
             string result = "";
-            HttpWebResponse response = Http.SyncList("@" + CompanySlug + "/backoffice/upload/locations", Data);
+            HttpWebResponse response = Http.SyncList("protected/profiles/" + CompanySlug + "/backoffice/upload/locations", Data);
 
             if (response.StatusCode != HttpStatusCode.OK)
             {
@@ -237,6 +248,10 @@ namespace Cognitivo.API
                 result = streamReader.ReadToEnd();
             }
 
+            //List<Models.Location> MyList = new List<Models.Location>();
+            //MyList = JsonConvert.DeserializeObject<List<Models.Location>>(result);
+
+            //return MyList;
             Models.LocationData MyList = new LocationData();
             MyList = JsonConvert.DeserializeObject<Models.LocationData>(result);
 
@@ -380,7 +395,7 @@ namespace Cognitivo.API
                 webAddr = "http://localhost:8000/";
             }
 
-            webAddr = webAddr +  "oauth/token";
+            webAddr = webAddr +  "login";
 
 
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(webAddr);
@@ -389,10 +404,7 @@ namespace Cognitivo.API
 
             string postData = "";
 
-            postData += "grant_type=password&";
-            postData += "client_id=2&";
-            postData += "client_secret=bu8xcic3XFp6BWKmtrcO8BYpD4JN9aM6DQe3hzOp&";
-            postData += "username=" + username + "&";
+            postData += "email=" + username + "&";
             postData += "password=" + passowrd;
 
 

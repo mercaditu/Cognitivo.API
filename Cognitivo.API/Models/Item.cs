@@ -63,6 +63,13 @@ namespace Cognitivo.API.Models
 
         [DataMember]
         /// <summary>
+        /// Gets or sets the sku.
+        /// </summary>
+        /// <value>The sku.</value>
+        public string code { get; set; }
+
+        [DataMember]
+        /// <summary>
         /// Gets or sets the bar code.
         /// </summary>
         /// <value>The bar code.</value>
