@@ -25,7 +25,7 @@ namespace Cognitivo.API
             Http.API = API_Key;
             if (SyncWith == Enums.SyncWith.Production)
             {
-                Http.Url = "http://www.bazaar.social/api/";
+                Http.Url = "https://developer.mercaditu.com/api/";
             }
             else if (SyncWith == Enums.SyncWith.Playground)
             {
@@ -234,7 +234,7 @@ namespace Cognitivo.API
         //    return Data;
         //}
         public List<Location> Locations(string CompanySlug, List<object> Data)
-        {
+         {
             string result = "";
             HttpWebResponse response = Http.SyncList("protected/profiles/" + CompanySlug + "/backoffice/upload/locations", Data);
 
